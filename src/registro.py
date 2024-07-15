@@ -3,9 +3,9 @@
 from usuario import Usuario
 
 usuarios_registrados = [
-    Usuario("Juan Perez", "juan.perez@example.com", "1234567890", "password123"),
-    Usuario("Maria Gomez", "maria.gomez@example.com", "0987654321", "securepassword"),
-    Usuario("Carlos Ramirez", "carlos.ramirez@example.com", "5551234567", "mysecurepass")
+    Usuario("administrador", "administrador@gmail.com", "1234567890", "123"),
+    Usuario("gerente", "gerente@gmail.com", "0987654321", "456"),
+    Usuario("vendedor", "gerente@gmail.com", "5551234567", "789")
 ]
 
 def registrar_usuario(nombre_completo, correo_electronico, telefono, contrasena):
