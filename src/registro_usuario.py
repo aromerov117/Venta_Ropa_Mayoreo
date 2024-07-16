@@ -1,13 +1,15 @@
-# registro.py
+# registro_usuario.py
 
-from usuario import Usuario
+from modelos import Usuario
 
+# Lista de usuarios registrados
 usuarios_registrados = [
     Usuario("administrador", "administrador@gmail.com", "1234567890", "123"),
     Usuario("gerente", "gerente@gmail.com", "0987654321", "456"),
-    Usuario("vendedor", "gerente@gmail.com", "5551234567", "789")
+    Usuario("vendedor", "vendedor@gmail.com", "5551234567", "789")
 ]
 
+# Función para registrar un nuevo usuario
 def registrar_usuario(nombre_completo, correo_electronico, telefono, contrasena):
     # Verificar si el correo electrónico ya está registrado
     for usuario in usuarios_registrados:

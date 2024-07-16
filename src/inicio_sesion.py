@@ -1,12 +1,12 @@
 # inicio_sesion.py
 
-from registro import usuarios_registrados
-from usuario import Usuario
+from registro_usuario import usuarios_registrados
+from modelos import Usuario
 
-# Diccionario para rastrear intentos fallidos de inicio de sesión
 intentos_fallidos = {}
 
 def iniciar_sesion(correo_electronico, contrasena):
+
     # Verificar si el correo electrónico está registrado
     for usuario in usuarios_registrados:
         if usuario.correo_electronico == correo_electronico:
