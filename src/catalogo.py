@@ -18,5 +18,3 @@ def mostrar_catalogo():
         print(f"Precio: ${producto.precio:.2f}")
         print(f"Disponibilidad: {'Disponible' if producto.disponibilidad else 'No disponible'}")
         print(f"Categoría: {producto.categoria}")
-
-# Funciones adicionales para filtrar productos, detalles adicionales, etc.

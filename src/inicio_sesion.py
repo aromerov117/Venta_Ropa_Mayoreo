@@ -1,7 +1,6 @@
 # inicio_sesion.py
 
 from registro_usuario import usuarios_registrados
-from modelos import Usuario
 
 intentos_fallidos = {}
 

@@ -2,8 +2,10 @@
 
 from registro_usuario import registrar_usuario
 from inicio_sesion import iniciar_sesion
-from ventas import mostrar_historial_ventas  # Importamos la función para mostrar el historial de ventas
-from catalogo import mostrar_catalogo  # Importamos la función para mostrar el catálogo
+from ventas import mostrar_historial_ventas
+from compras import mostrar_historial_compras
+from contabilidad import mostrar_analisis_contabilidad
+from catalogo import mostrar_catalogo
 
 opciones_menu = [
     "Catalogo",
@@ -27,7 +29,6 @@ def interfaz_registro():
     registrado, mensaje = registrar_usuario(nombre_completo, correo_electronico, telefono, contrasena)
     print(mensaje)
 
-
 def interfaz_inicio_sesion():
     print("Bienvenido al inicio de sesión.")
     correo_electronico = input("Ingresa tu correo electrónico: ")
@@ -39,7 +40,6 @@ def interfaz_inicio_sesion():
         mostrar_menu()
     else:
         print(mensaje)
-
 
 def mostrar_menu():
     while True:
@@ -66,6 +66,10 @@ def seleccionar_opcion(opcion):
         mostrar_catalogo()
     elif opcion == 7:
         mostrar_historial_ventas()
+    elif opcion == 8:
+        mostrar_historial_compras()
+    elif opcion == 9:
+        mostrar_analisis_contabilidad()  # Agregar opción para el análisis de contabilidad
     else:
         print(f"Seleccionaste: {opciones_menu[opcion - 1]}")
         # Aquí puedes agregar la lógica para redirigir al usuario al módulo correspondiente

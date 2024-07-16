@@ -20,5 +20,3 @@ def mostrar_historial_ventas():
         for producto, cantidad, precio_unitario in zip(venta.productos, venta.cantidades, venta.precios_unitarios):
             print(f"- {producto}: {cantidad} unidades a ${precio_unitario:.2f} cada una")
         print(f"Total de la venta: ${venta.total_venta:.2f}")
-
-# Funciones de filtro y obtención de detalles como se mostró anteriormente
