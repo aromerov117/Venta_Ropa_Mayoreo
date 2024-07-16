@@ -74,5 +74,6 @@ if __name__ == "__main__":
             interfaz_registro()
         elif opcion == "2":
             interfaz_inicio_sesion()
+
         else:
             print("Opción no válida. Por favor, intenta de nuevo.")
