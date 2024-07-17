@@ -1,15 +1,20 @@
 # contabilidad.py
 
 from ventas import ventas_realizadas
-#from compras import compras_realizadas
+from compras import compras_realizadas
+from modelos import Proveedor
 
 def mostrar_reporte_compras():
     print("\nReporte de Compras:")
     for compra in compras_realizadas:
         print(f"Fecha: {compra.fecha}")
-        print(f"Proveedor: {compra.proveedor.nombre}")
-        for i, producto in enumerate(compra.productos):
-            print(f"Producto {i+1}: {producto[0]} - Cantidad: {producto[1]} - Costo Unitario: ${producto[2]:.2f}")
+        if isinstance(compra.proveedor, Proveedor):
+            print(f"Proveedor: {compra.proveedor.nombre_empresa}")
+        else:
+            print(f"Proveedor: {compra.proveedor}")  # Imprime para depurar si es necesario
+        for i, producto in enumerate(compra.productos_comprados):
+            nombre_producto, cantidad, precio_unitario = producto
+            print(f"Producto {i+1}: {nombre_producto} - Cantidad: {cantidad} - Costo Unitario: ${precio_unitario:.2f}")
         print(f"Total de Compra: ${compra.obtener_total_compra():.2f}")
         print("-" * 30)
 
