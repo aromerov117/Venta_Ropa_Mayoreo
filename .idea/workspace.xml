@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ef11c06-510e-4dd6-a7e9-36c87dcb4217" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/edicion_gestion_usuarios.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/visualizacion_usuarios.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/registro_usuario.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/registro_usuario.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -116,6 +117,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Venta_Ropa_Mayoreo$interfaz_usuario.coverage" NAME="main Coverage Results" MODIFIED="1721074501917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Venta_Ropa_Mayoreo$main.coverage" NAME="main Coverage Results" MODIFIED="1721158515153" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Venta_Ropa_Mayoreo$main.coverage" NAME="main Coverage Results" MODIFIED="1721196075288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

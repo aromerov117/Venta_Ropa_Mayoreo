@@ -16,7 +16,7 @@ def registrar_usuario(nombre_completo, correo_electronico, telefono, contrasena)
         if usuario.correo_electronico == correo_electronico:
             return False, "El correo electrónico ya está registrado. Por favor, utiliza otro correo."
 
-    # Si no está registrado, crear un nuevo usuario
-    nuevo_usuario = Usuario(nombre_completo, correo_electronico, telefono, contrasena)
+    # Si no está registrado, crear un nuevo usuario con el rol "vendedor"
+    nuevo_usuario = Usuario(nombre_completo, correo_electronico, telefono, contrasena, "vendedor")
     usuarios_registrados.append(nuevo_usuario)
     return True, "Registro exitoso. Ahora puedes iniciar sesión."
