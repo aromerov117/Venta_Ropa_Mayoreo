@@ -22,7 +22,7 @@ opciones_menu = [
     "Historial de Ventas",
     "Historial de Compras",
     "Análisis de Contabilidad de Compras y Ventas",
-    "Visualizar usuarios",  # Agregamos la opción de visualizar usuarios al menú
+    "Visualizar usuarios",
     "Gestionar usuarios"
 ]
 
