@@ -1,4 +1,4 @@
-from Proveedor import Proveedor
+from modelos import Proveedor
 
 def registrar_proveedor(proveedores):
     id_proveedor = int(input("Ingrese el ID del proveedor: "))
