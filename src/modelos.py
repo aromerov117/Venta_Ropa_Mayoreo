@@ -1,11 +1,12 @@
 # modelos.py
 
 class Usuario:
-    def __init__(self, nombre_completo, correo_electronico, telefono, contrasena):
+    def __init__(self, nombre_completo, correo_electronico, telefono, contrasena, rol):
         self.nombre_completo = nombre_completo
         self.correo_electronico = correo_electronico
         self.telefono = telefono
         self.contrasena = contrasena
+        self.rol = rol
 
 
 class Producto:

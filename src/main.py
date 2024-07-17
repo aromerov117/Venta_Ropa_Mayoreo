@@ -88,7 +88,7 @@ def seleccionar_opcion(opcion):
     elif opcion == 8:
         mostrar_historial_compras()
     elif opcion == 9:
-        mostrar_analisis_contabilidad()  # Agregar opción para el análisis de contabilidad
+        mostrar_analisis_contabilidad()
     else:
         print(f"Seleccionaste: {opciones_menu[opcion - 1]}")
         # Aquí puedes agregar la lógica para redirigir al usuario al módulo correspondiente
