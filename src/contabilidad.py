@@ -1,7 +1,7 @@
 # contabilidad.py
 
 from ventas import ventas_realizadas
-from compras import compras_realizadas
+#from compras import compras_realizadas
 
 def mostrar_reporte_compras():
     print("\nReporte de Compras:")

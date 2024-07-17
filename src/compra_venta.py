@@ -1,6 +1,7 @@
 from Producto import Producto
-
-def mostrar_entrada_productos(productos):
+from compras import *
+from Proveedor import *
+def mostrar_entrada_productos(productos, proveedores, compras):
     # Mostrar productos existentes
     for producto in productos:
         print(producto)
@@ -8,6 +9,7 @@ def mostrar_entrada_productos(productos):
     id_producto = int(input("ID del producto: "))
 
     # Buscar el producto por su id_producto
+    producto_encontrado = False
     for producto in productos:
         if producto.id_producto == id_producto:
             print("1.- Chica")
@@ -24,27 +26,46 @@ def mostrar_entrada_productos(productos):
             else:
                 print("Talla no válida")
                 return
-            print(
-                f"Cantidad actualizada: '{producto.nombre}' - Chica: {producto.tallachica}, Mediana: {producto.tallamediana}, Grande: {producto.tallagrande}")
+
+            fecha_actual = input("Fecha actual: ")
+            id_proveedor = producto.id_proveedor
+            nombre_proveedor = ""
+            for proveedor in proveedores:
+                if proveedor.id_proveedor == id_proveedor:
+                    nombre_proveedor = proveedor.nombre_empresa
+
+            tupla_producto = (producto.nombre, cantidad_nueva, producto.precioventa)
+            lista_tuplas = [tupla_producto]
+            nueva_compra = Compra(fecha_actual, nombre_proveedor, lista_tuplas)
+            compras.append(nueva_compra)
+            print(f"Cantidad actualizada: '{producto.nombre}' - Chica: {producto.tallachica}, Mediana: {producto.tallamediana}, Grande: {producto.tallagrande}")
             return
 
-    # Si no se encuentra el producto, agregar uno nuevo
-    nombre = input("Nombre del producto: ")
-    descripcion = input("Descripción del producto: ")
-    tallachica = int(input("Cantidad de talla chica: "))
-    tallamediana = int(input("Cantidad de talla mediana: "))
-    tallagrande = int(input("Cantidad de talla grande: "))
-    color = input("Color del producto: ")
-    precioCosto = float(input("Precio de Costo: "))
-    precioVenta = float(input("Precio de Venta: "))
-    id_proveedor = int(input("ID del proveedor: "))
+    if not producto_encontrado:
+        # Si no se encuentra el producto, agregar uno nuevo
+        nombre = input("Nombre del producto: ")
+        descripcion = input("Descripción del producto: ")
+        tallachica = int(input("Cantidad de talla chica: "))
+        tallamediana = int(input("Cantidad de talla mediana: "))
+        tallagrande = int(input("Cantidad de talla grande: "))
+        color = input("Color del producto: ")
+        precioCosto = float(input("Precio de Costo: "))
+        precioVenta = float(input("Precio de Venta: "))
+        id_proveedor = int(input("ID del proveedor: "))
 
-    nuevo_producto = Producto(id_producto, nombre, descripcion, tallachica, tallamediana, tallagrande, color,
-                              precioCosto, precioVenta, id_proveedor)
-    productos.append(nuevo_producto)
+        # Verificar si el proveedor existe antes de agregar el producto
+        proveedor_encontrado = False
+        for proveedor in proveedores:
+            if proveedor.id_proveedor == id_proveedor:
+                proveedor_encontrado = True
+                nuevo_producto = Producto(id_producto, nombre, descripcion, tallachica, tallamediana, tallagrande, color, precioCosto, precioVenta, id_proveedor)
+                productos.append(nuevo_producto)
+                print("Producto agregado exitosamente!\n")
+                print(nuevo_producto)
+                break
 
-    print("Producto agregado exitosamente!\n")
-    print(nuevo_producto)
+        if not proveedor_encontrado:
+            print("El proveedor no existe")
 
 
 def mostrar_salida_productos(productos):
