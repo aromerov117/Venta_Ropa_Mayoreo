@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ef11c06-510e-4dd6-a7e9-36c87dcb4217" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/compra.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelos.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/registro_producto.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ventas.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gestion_proveedores.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/catalogo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/inicio_sesion.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/inicio_sesion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaz_usuario.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Producto.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Producto.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Proveedor.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Proveedor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/compra_venta.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/compra_venta.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/registro.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/registro_usuario.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/usuario.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +40,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.compra_venta.executor": "Run",
+    "Python.gestion_proveedores.executor": "Run",
     "Python.interfaz_usuario.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -121,6 +118,12 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Venta_Ropa_Mayoreo$interfaz_usuario.coverage" NAME="main Coverage Results" MODIFIED="1721074501917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Venta_Ropa_Mayoreo$interfaz_usuario.coverage" NAME="interfaz_usuario Coverage Results" MODIFIED="1721066950472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Proyecto$gestion_proveedores.coverage" NAME="gestion_proveedores Coverage Results" MODIFIED="1721183208595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Proyecto$Prenda.coverage" NAME="Prenda Coverage Results" MODIFIED="1721090053025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Proyecto$Proveedores.coverage" NAME="Proveedores Coverage Results" MODIFIED="1721092051766" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Proyecto$compra_venta.coverage" NAME="compra_venta Coverage Results" MODIFIED="1721179398148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Proyecto$main.coverage" NAME="main Coverage Results" MODIFIED="1721183213798" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Proyecto$interfaz_usuario.coverage" NAME="interfaz_usuario Coverage Results" MODIFIED="1721087531020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
 </project>
