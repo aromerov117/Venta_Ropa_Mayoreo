@@ -1,3 +1,5 @@
+# gestion_proveedores.py
+
 from modelos import Proveedor
 
 proveedores = [

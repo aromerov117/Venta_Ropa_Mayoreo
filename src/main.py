@@ -1,4 +1,4 @@
-from registro_usuario import registrar_usuario
+from registro_usuario import registrar_usuario, visualizar_usuarios
 from inicio_sesion import iniciar_sesion
 from ventas import mostrar_historial_ventas
 from compras import mostrar_historial_compras
@@ -7,8 +7,9 @@ from catalogo import mostrar_catalogo
 from compra_venta import *
 from modelos import Producto
 from gestion_proveedores import *
-from visualizacion_usuarios import visualizar_usuarios
 from edicion_gestion_usuarios import *
+from registro_producto import Producto
+from gestion_inventario import menu_gestion_inventario
 
 opciones_menu = [
     "Catalogo",
@@ -70,11 +71,15 @@ def seleccionar_opcion(opcion):
     if opcion == 1:
         mostrar_catalogo()
     elif opcion == 2:
-        mostrar_entrada_productos(proveedores, compras_realizadas)
+        mostrar_entrada_productos(productos_registrados, proveedores, compras_realizadas)
     elif opcion == 3:
-        mostrar_salida_productos(Producto)
+        mostrar_salida_productos(productos_registrados)
+    elif opcion == 4:
+        menu_proveedores(proveedores)
     elif opcion == 5:
         menu_proveedores(proveedores)
+    elif opcion == 6:
+        menu_gestion_inventario()
     elif opcion == 7:
         mostrar_historial_ventas()
     elif opcion == 8:

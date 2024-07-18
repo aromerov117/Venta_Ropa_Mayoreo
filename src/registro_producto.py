@@ -11,25 +11,40 @@ productos_registrados = [
     Producto(5, "Gorra", "Gorra de béisbol", 20, 20, 13, "Negro", 30.0, 80.0, 1)
 ]
 
+# Función para buscar un producto por ID
+def buscar_producto_por_id(id_producto):
+    for producto in productos_registrados:
+        if producto.id_producto == id_producto:
+            return producto
+    return None
 
 # Función para registrar un nuevo producto
-def registrar_producto(nombre, descripcion, precio, disponibilidad, categoria, cantidad):
-    nuevo_producto = Producto(nombre, descripcion, precio, disponibilidad, categoria, cantidad)
+def registrar_producto(id_producto, nombre, descripcion, tallachica, tallamediana, tallagrande, color, preciocosto, precioventa, id_proveedor):
+    nuevo_producto = Producto(id_producto, nombre, descripcion, tallachica, tallamediana, tallagrande, color, preciocosto, precioventa, id_proveedor)
     productos_registrados.append(nuevo_producto)
     return True, "Producto registrado exitosamente."
 
-
 # Función para editar un producto existente
-def editar_producto(nombre_buscar, nombre_nuevo, descripcion_nueva, precio_nuevo, disponibilidad_nueva, categoria_nueva,
-                    cantidad_nueva):
-    for producto in productos_registrados:
-        if producto.nombre == nombre_buscar:
+def editar_producto(id_producto, nombre_nuevo=None, descripcion_nueva=None, tallachica_nueva=None, tallamediana_nueva=None, tallagrande_nueva=None, color_nuevo=None, preciocosto_nuevo=None, precioventa_nuevo=None, id_proveedor_nuevo=None):
+    producto = buscar_producto_por_id(id_producto)
+    if producto:
+        if nombre_nuevo:
             producto.nombre = nombre_nuevo
+        if descripcion_nueva:
             producto.descripcion = descripcion_nueva
-            producto.precio = precio_nuevo
-            producto.disponibilidad = disponibilidad_nueva
-            producto.categoria = categoria_nueva
-            producto.cantidad = cantidad_nueva
-            return True, "Producto editado exitosamente."
-
+        if tallachica_nueva is not None:
+            producto.tallachica = tallachica_nueva
+        if tallamediana_nueva is not None:
+            producto.tallamediana = tallamediana_nueva
+        if tallagrande_nueva is not None:
+            producto.tallagrande = tallagrande_nueva
+        if color_nuevo:
+            producto.color = color_nuevo
+        if preciocosto_nuevo is not None:
+            producto.preciocosto = preciocosto_nuevo
+        if precioventa_nuevo is not None:
+            producto.precioventa = precioventa_nuevo
+        if id_proveedor_nuevo is not None:
+            producto.id_proveedor = id_proveedor_nuevo
+        return True, "Producto editado exitosamente."
     return False, "Producto no encontrado."
