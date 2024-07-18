@@ -1,5 +1,3 @@
-# edicion_gestion_usuarios.py
-
 from registro_usuario import usuarios_registrados, Usuario
 
 
@@ -9,6 +7,7 @@ def mostrar_usuarios():
         print(f"Nombre Completo: {usuario.nombre_completo}")
         print(f"Correo Electrónico: {usuario.correo_electronico}")
         print(f"Teléfono: {usuario.telefono}")
+        print(f"Contraseña: {usuario.contrasena}")  # Mostrar contraseña para depuración
         print(f"Rol: {usuario.rol}")
         print("-----------------------------")
 
@@ -34,9 +33,16 @@ def editar_usuario():
         nuevo_correo = input("Ingresa el nuevo correo electrónico del usuario: ")
         nuevo_telefono = input("Ingresa el nuevo número de teléfono del usuario: ")
         nuevo_rol = input("Ingresa el nuevo rol del usuario: ")
+        nueva_contrasena = input("Ingresa la nueva contraseña del usuario: ")
 
         # Validar que los campos no estén vacíos
-        if nuevo_nombre.strip() == "" or nuevo_correo.strip() == "" or nuevo_telefono.strip() == "" or nuevo_rol.strip() == "":
+        if (
+            nuevo_nombre.strip() == "" or
+            nuevo_correo.strip() == "" or
+            nuevo_telefono.strip() == "" or
+            nuevo_rol.strip() == "" or
+            nueva_contrasena.strip() == ""
+        ):
             print("\nError: Todos los campos deben ser completados.")
             return
 
@@ -54,6 +60,7 @@ def editar_usuario():
             usuario.correo_electronico = nuevo_correo
             usuario.telefono = nuevo_telefono
             usuario.rol = nuevo_rol
+            usuario.contrasena = nueva_contrasena  # Actualizar la contraseña
             print("\nEdición realizada exitosamente.")
         else:
             print("\nEdición cancelada.")

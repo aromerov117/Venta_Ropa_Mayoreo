@@ -10,12 +10,40 @@ class Usuario:
 
 
 class Producto:
-    def __init__(self, nombre, descripcion, precio, disponibilidad, categoria):
+    def __init__(self, id_producto, nombre, descripcion, tallachica, tallamediana, tallagrande, color, preciocosto, precioventa, id_proveedor):
+        self.id_producto = id_producto
         self.nombre = nombre
         self.descripcion = descripcion
-        self.precio = precio
-        self.disponibilidad = disponibilidad
-        self.categoria = categoria
+        self.tallachica = tallachica
+        self.tallamediana = tallamediana
+        self.tallagrande = tallagrande
+        self.color = color
+        self.preciocosto = preciocosto
+        self.precioventa = precioventa
+        self.id_proveedor = id_proveedor
+
+    def __str__(self):
+        return (f"ID:{self.id_producto}\tNombre:{self.nombre}\tDescripción:{self.descripcion}\n"
+                f"TallaChica:{self.tallachica}\tTallaMediana:{self.tallamediana}\tTallaGrande:{self.tallagrande}\n"
+                f"Color: {self.color}\n"
+                f"Precio Costo:${self.preciocosto}\tPrecio Venta:${self.precioventa}\tProveedor:{self.id_proveedor}")
+
+    def mostrarVendedor(self):
+        return (f"ID:{self.id_producto}\tNombre:{self.nombre}\tDescripcion:{self.descripcion}\n"
+                f"TallaChica:{self.tallachica}\tTallaMediana:{self.tallamediana}\tTallaGrande:{self.tallagrande}\n"
+                f"Color:{self.color}\tPrecio:${self.precioventa}\t")
+
+class Proveedor:
+    def __init__(self, id_proveedor, nombre_empresa, direccion, telefono, correo, productos):
+        self.id_proveedor = id_proveedor
+        self.nombre_empresa = nombre_empresa
+        self.direccion = direccion
+        self.telefono = telefono
+        self.correo = correo
+        self.productos = productos  # Lista de nombres de productos que el proveedor ofrece
+
+    def __str__(self):
+        return f"ID:{self.id_proveedor}\tNombre:{self.nombre_empresa}\tDireccion:{self.direccion}\tTelefono:{self.telefono}\tCorreo:{self.correo}"
 
 
 class Venta:
@@ -27,18 +55,11 @@ class Venta:
         self.precios_unitarios = precios_unitarios
         self.total_venta = total_venta
 
-
-class Proveedor:
-    def __init__(self, nombre, contacto=None):
-        self.nombre = nombre
-        self.contacto = contacto
-
-
 class Compra:
-    def __init__(self, fecha, proveedor, productos):
+    def __init__(self, fecha, proveedor, productos_comprados):
         self.fecha = fecha
         self.proveedor = proveedor
-        self.productos = productos  # Lista de tuplas (producto, cantidad, precio_unitario)
+        self.productos_comprados = productos_comprados
 
     def obtener_total_compra(self):
-        return sum(cantidad * precio_unitario for _, cantidad, precio_unitario in self.productos)
+        return sum(cantidad * precio_unitario for _, cantidad, precio_unitario in self.productos_comprados)

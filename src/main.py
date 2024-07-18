@@ -1,16 +1,15 @@
-# main.py
-
-from registro_usuario import registrar_usuario
+from registro_usuario import registrar_usuario, visualizar_usuarios
 from inicio_sesion import iniciar_sesion
 from ventas import mostrar_historial_ventas
 from compras import mostrar_historial_compras
 from contabilidad import mostrar_analisis_contabilidad
 from catalogo import mostrar_catalogo
 from compra_venta import *
-from Producto import Producto
+from modelos import Producto
 from gestion_proveedores import *
-from visualizacion_usuarios import visualizar_usuarios
 from edicion_gestion_usuarios import *
+from registro_producto import Producto
+from gestion_inventario import menu_gestion_inventario
 
 opciones_menu = [
     "Catalogo",
@@ -26,24 +25,6 @@ opciones_menu = [
     "Gestionar usuarios"
 ]
 
-# Ejemplo de uso
-productos = [
-    Producto(1, "Camiseta", "Camiseta de algodón", 10, 5, 3, "Rojo", 20.0, 50.0, 1),
-    Producto(2, "Jeans", "Jeans ajustados", 10, 5, 4, "Azul", 35.0, 75.0, 2),
-    Producto(3, "Chaqueta", "Chaqueta de cuero", 12, 8, 9, "Negro", 50.0, 100.0, 1),
-    Producto(4, "Zapatos", "Zapatos deportivos", 10, 10, 20, "Blanco", 20.0, 60.0, 2),
-    Producto(5, "Gorra", "Gorra de béisbol", 20, 20, 13, "Negro", 30.0, 80.0, 1)
-]
-
-proveedores = [
-    Proveedor(1, "Proveedor A", "Calle Principal 123", "555-1234", "info@proveedora.com", ["Producto A", "Producto B"]),
-    Proveedor(2, "Proveedor B", "Av. Independencia 456", "555-5678", "info@proveedorb.com", ["Producto C"])
-]
-compras = [
-    Compra("2023-07-01", "Proveedor A", [("Producto A", 5, 20.0), ("Producto B", 10, 15.0)]),
-    Compra("2023-07-05", "Proveedor B", [("Producto C", 7, 25.0)]),
-    Compra("2023-07-10", "Proveedor A", [("Producto A", 3, 20.0), ("Producto D", 8, 30.0)]),
-]
 def interfaz_registro():
     print("Bienvenido al registro de usuarios.")
     nombre_completo = input("Ingresa tu nombre completo: ")
@@ -90,15 +71,19 @@ def seleccionar_opcion(opcion):
     if opcion == 1:
         mostrar_catalogo()
     elif opcion == 2:
-        mostrar_entrada_productos(productos,proveedores,compras)
+        mostrar_entrada_productos(productos_registrados, proveedores, compras_realizadas)
     elif opcion == 3:
-        mostrar_salida_productos(productos)
+        mostrar_salida_productos(productos_registrados)
+    elif opcion == 4:
+        menu_proveedores(proveedores)
     elif opcion == 5:
         menu_proveedores(proveedores)
+    elif opcion == 6:
+        menu_gestion_inventario()
     elif opcion == 7:
         mostrar_historial_ventas()
     elif opcion == 8:
-        mostrar_historial_compras(compras)
+        mostrar_historial_compras(compras_realizadas)
     elif opcion == 9:
         mostrar_analisis_contabilidad()
     elif opcion == 10:

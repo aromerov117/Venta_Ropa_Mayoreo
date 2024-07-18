@@ -20,3 +20,12 @@ def registrar_usuario(nombre_completo, correo_electronico, telefono, contrasena)
     nuevo_usuario = Usuario(nombre_completo, correo_electronico, telefono, contrasena, "vendedor")
     usuarios_registrados.append(nuevo_usuario)
     return True, "Registro exitoso. Ahora puedes iniciar sesión."
+
+def visualizar_usuarios():
+    print("\nLista de Usuarios Registrados:")
+    for usuario in usuarios_registrados:
+        print(f"Nombre Completo: {usuario.nombre_completo}")
+        print(f"Correo Electrónico: {usuario.correo_electronico}")
+        print(f"Teléfono: {usuario.telefono}")
+        print(f"Rol: {usuario.rol}")
+        print("-----------------------------")

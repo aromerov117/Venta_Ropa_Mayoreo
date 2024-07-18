@@ -1,4 +1,11 @@
-from Proveedor import Proveedor
+# gestion_proveedores.py
+
+from modelos import Proveedor
+
+proveedores = [
+    Proveedor(1, "Proveedor A", "Calle Principal 123", "555-1234", "info@proveedora.com", ["Producto A", "Producto B"]),
+    Proveedor(2, "Proveedor B", "Av. Independencia 456", "555-5678", "info@proveedorb.com", ["Producto C"])
+]
 
 def registrar_proveedor(proveedores):
     id_proveedor = int(input("Ingrese el ID del proveedor: "))

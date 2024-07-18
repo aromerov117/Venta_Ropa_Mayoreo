@@ -1,6 +1,10 @@
-from Producto import Producto
+# compra_venta.py
+
+from modelos import *
+from registro_producto import *
 from compras import *
-from Proveedor import *
+from gestion_proveedores import *
+
 def mostrar_entrada_productos(productos, proveedores, compras):
     # Mostrar productos existentes
     for producto in productos:
@@ -111,15 +115,3 @@ def mostrar_salida_productos(productos):
             return
 
     print("Producto no encontrado")
-
-
-
-
-
-
-
-
-
-
-
-
