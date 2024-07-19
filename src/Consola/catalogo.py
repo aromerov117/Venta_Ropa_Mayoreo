@@ -1,6 +1,5 @@
-# catalogo.py
+# interfaz_catalogo.py
 
-from modelos import Producto
 from registro_producto import productos_registrados
 
 def mostrar_catalogo():

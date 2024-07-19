@@ -41,6 +41,3 @@ def mostrar_analisis_contabilidad():
     print("\nMargen de Ganancia:")
     margen_ganancia = calcular_margen_ganancia()
     print(f"El margen de ganancia total es: ${margen_ganancia:.2f}")
-
-if __name__ == "__main__":
-    mostrar_analisis_contabilidad()
