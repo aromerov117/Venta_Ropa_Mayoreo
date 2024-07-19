@@ -63,3 +63,13 @@ class Compra:
 
     def obtener_total_compra(self):
         return sum(cantidad * precio_unitario for _, cantidad, precio_unitario in self.productos_comprados)
+
+class Devolucion:
+    def __init__(self, fecha, proveedor, producto_devuelto, cantidad, costo_devolucion):
+        self.fecha = fecha
+        self.proveedor = proveedor
+        self.producto_devuelto = producto_devuelto
+        self.cantidad = cantidad
+        self.costo_devolucion = costo_devolucion
+
+
