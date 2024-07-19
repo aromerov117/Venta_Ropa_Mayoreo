@@ -1,6 +1,6 @@
 from registro_usuario import registrar_usuario, visualizar_usuarios
 from inicio_sesion import iniciar_sesion
-from ventas import mostrar_historial_ventas
+from ventas import *
 from compras import mostrar_historial_compras
 from contabilidad import mostrar_analisis_contabilidad
 from catalogo import mostrar_catalogo
@@ -74,7 +74,7 @@ def seleccionar_opcion(opcion):
     elif opcion == 2:
         mostrar_entrada_productos(productos_registrados, proveedores, compras_realizadas)
     elif opcion == 3:
-        mostrar_salida_productos(productos_registrados)
+        mostrar_salida_productos(productos_registrados,ventas_realizadas)
     elif opcion == 4:
         menu_proveedores(proveedores)
     elif opcion == 5:

@@ -1,6 +1,7 @@
 # compra_venta.py
 from datetime import datetime
 from compras import *
+from ventas import *
 
 def validar_opcion_talla():
     while True:
@@ -98,12 +99,15 @@ def mostrar_entrada_productos(productos, proveedores, compras):
         print("Opcion invalida")
 
 
-def mostrar_salida_productos(productos):
+#-------------- Ventas ----------------
+def mostrar_salida_productos(productos,ventas_realizadas):
     for producto in productos:
         print(producto.mostrarVendedor())
 
     id_producto = int(input("ID del producto: "))
-
+    lista_productos = []
+    lista_cantidades = []
+    lista_precios = []
     for producto in productos:
         if producto.id_producto == id_producto:
             print("1.- Chica")
@@ -116,6 +120,13 @@ def mostrar_salida_productos(productos):
                     print("Sin Stock, elige otro producto")
                 else:
                     cantidad = int(input("Cantidad: "))
+                    nombre_cliente = input("Nombre del Cliente: ")
+                    lista_productos.append(producto.nombre)
+                    lista_cantidades.append(cantidad)
+                    lista_precios.append(producto.precioventa)
+                    precioTotal = producto.precioventa * cantidad
+                    venta = Venta(datetime.now().date(),nombre_cliente,lista_productos,lista_cantidades,lista_precios,precioTotal,)
+                    ventas_realizadas.append(venta)
                     producto.tallachica -= cantidad
                     print("¡¡Venta Realizada!!")
 
@@ -124,7 +135,14 @@ def mostrar_salida_productos(productos):
                     print("Sin Stock, elige otro producto")
                 else:
                     cantidad = int(input("Cantidad: "))
-                    producto.tallamediana -= cantidad
+                    nombre_cliente = input("Nombre del Cliente")
+                    lista_productos.append(producto.nombre)
+                    lista_cantidades.append(cantidad)
+                    lista_precios.append(producto.precioventa)
+                    precioTotal = producto.precioventa * cantidad
+                    venta = Venta(datetime.now().date(),nombre_cliente,lista_productos,lista_cantidades,lista_precios,precioTotal,)
+                    ventas_realizadas.append(venta)
+                    producto.tallachica -= cantidad
                     print("¡¡Venta Realizada!!")
 
             elif talla == "3":
@@ -132,7 +150,14 @@ def mostrar_salida_productos(productos):
                     print("Sin Stock, elige otro producto")
                 else:
                     cantidad = int(input("Cantidad: "))
-                    producto.tallagrande -= cantidad
+                    nombre_cliente = input("Nombre del Cliente")
+                    lista_productos.append(producto.nombre)
+                    lista_cantidades.append(cantidad)
+                    lista_precios.append(producto.precioventa)
+                    precioTotal = producto.precioventa * cantidad
+                    venta = Venta(datetime.now().date(),nombre_cliente,lista_productos,lista_cantidades,lista_precios,precioTotal,)
+                    ventas_realizadas.append(venta)
+                    producto.tallachica -= cantidad
                     print("¡¡Venta Realizada!!")
 
             else:
