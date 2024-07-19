@@ -14,7 +14,7 @@ def iniciar_sesion(correo_electronico, contrasena):
                 print("Contraseña correcta")  # Depuración
                 # Restablecer intentos fallidos en caso de éxito
                 intentos_fallidos[correo_electronico] = 0
-                return True, "Inicio de sesión exitoso. Bienvenido al sistema."
+                return True, f"Inicio de sesión exitoso. Bienvenido al sistema, {usuario.nombre_completo}.", usuario.rol.lower()
             else:
                 print(f"Contraseña incorrecta: {contrasena}")  # Depuración
                 # Incrementar el contador de intentos fallidos
@@ -25,8 +25,8 @@ def iniciar_sesion(correo_electronico, contrasena):
 
                 # Verificar si se ha alcanzado el límite de intentos fallidos
                 if intentos_fallidos[correo_electronico] >= 3:
-                    return False, "Cuenta bloqueada temporalmente por demasiados intentos fallidos."
-                return False, "Credenciales incorrectas. Por favor, inténtalo nuevamente."
+                    return False, "Cuenta bloqueada temporalmente por demasiados intentos fallidos.", None
+                return False, "Credenciales incorrectas. Por favor, inténtalo nuevamente.", None
 
     print(f"Correo electrónico no encontrado: {correo_electronico}")  # Depuración
-    return False, "El correo electrónico no está registrado."
+    return False, "El correo electrónico no está registrado.", None
