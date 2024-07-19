@@ -125,7 +125,7 @@ def mostrar_salida_productos(productos,ventas_realizadas):
                     lista_cantidades.append(cantidad)
                     lista_precios.append(producto.precioventa)
                     precioTotal = producto.precioventa * cantidad
-                    venta = Venta(datetime.now().date(),nombre_cliente,lista_productos,lista_cantidades,lista_precios,precioTotal,)
+                    venta = Venta(datetime.now().date(), nombre_cliente, lista_productos, lista_cantidades, lista_precios, precioTotal)
                     ventas_realizadas.append(venta)
                     producto.tallachica -= cantidad
                     print("¡¡Venta Realizada!!")
@@ -140,7 +140,7 @@ def mostrar_salida_productos(productos,ventas_realizadas):
                     lista_cantidades.append(cantidad)
                     lista_precios.append(producto.precioventa)
                     precioTotal = producto.precioventa * cantidad
-                    venta = Venta(datetime.now().date(),nombre_cliente,lista_productos,lista_cantidades,lista_precios,precioTotal,)
+                    venta = Venta(datetime.now().date(), nombre_cliente, lista_productos, lista_cantidades, lista_precios, precioTotal)
                     ventas_realizadas.append(venta)
                     producto.tallachica -= cantidad
                     print("¡¡Venta Realizada!!")
@@ -155,7 +155,7 @@ def mostrar_salida_productos(productos,ventas_realizadas):
                     lista_cantidades.append(cantidad)
                     lista_precios.append(producto.precioventa)
                     precioTotal = producto.precioventa * cantidad
-                    venta = Venta(datetime.now().date(),nombre_cliente,lista_productos,lista_cantidades,lista_precios,precioTotal,)
+                    venta = Venta(datetime.now().date(), nombre_cliente, lista_productos, lista_cantidades, lista_precios, precioTotal)
                     ventas_realizadas.append(venta)
                     producto.tallachica -= cantidad
                     print("¡¡Venta Realizada!!")
