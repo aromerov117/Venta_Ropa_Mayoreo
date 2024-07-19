@@ -10,6 +10,7 @@ from gestion_proveedores import *
 from edicion_gestion_usuarios import *
 from registro_producto import Producto
 from gestion_inventario import menu_gestion_inventario
+from registro_producto import productos_registrados
 
 opciones_menu = [
     "Catalogo",

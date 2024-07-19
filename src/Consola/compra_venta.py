@@ -1,72 +1,101 @@
 # compra_venta.py
-
+from datetime import datetime
 from compras import *
+
+def validar_opcion_talla():
+    while True:
+        print("1.- Chica")
+        print("2.- Mediana")
+        print("3.- Grande")
+        talla = input("Seleccione Talla del producto: ")
+        if talla in ["1", "2", "3"]:
+            return talla
+        else:
+            print("Talla inválida, por favor seleccione una opción válida.")
 
 def mostrar_entrada_productos(productos, proveedores, compras):
     # Mostrar productos existentes
     for producto in productos:
         print(producto)
 
-    id_producto = int(input("ID del producto: "))
+    print("---Menu Compras---")
+    print("1 - Comprar Productos en Existencia")
+    print("2 - Comprar Producto Nuevo")
+    opcion = input("Seleccione una opcion: ")
 
-    # Buscar el producto por su id_producto
-    producto_encontrado = False
-    for producto in productos:
-        if producto.id_producto == id_producto:
-            print("1.- Chica")
-            print("2.- Mediana")
-            print("3.- Grande")
-            talla = input(f"Seleccione Talla del producto {producto.nombre}: ")
-            cantidad_nueva = int(input("Cantidad: "))
-            if talla == "1":
-                producto.tallachica += cantidad_nueva
-            elif talla == "2":
-                producto.tallamediana += cantidad_nueva
-            elif talla == "3":
-                producto.tallagrande += cantidad_nueva
-            else:
-                print("Talla no válida")
+    if opcion == "1":
+        id_producto = int(input("ID del producto: "))
+        # Buscar el producto por su id_producto
+        producto_encontrado = False
+        for producto in productos:
+            if producto.id_producto == id_producto:
+                producto_encontrado = True
+                talla = validar_opcion_talla()
+                cantidad_nueva = int(input("Cantidad: "))
+                if talla == "1":
+                    producto.tallachica += cantidad_nueva
+                elif talla == "2":
+                    producto.tallamediana += cantidad_nueva
+                elif talla == "3":
+                    producto.tallagrande += cantidad_nueva
+                fecha_actual = datetime.now().date()
+                id_proveedor = producto.id_proveedor
+                nombre_proveedor = ""
+                for proveedor in proveedores:
+                    if proveedor.id_proveedor == id_proveedor:
+                        nombre_proveedor = proveedor.nombre_empresa
+
+                tupla_producto = (producto.nombre, cantidad_nueva, producto.preciocosto)
+                lista_tuplas = [tupla_producto]
+                nueva_compra = Compra(fecha_actual, nombre_proveedor, lista_tuplas)
+                compras.append(nueva_compra)
+                print(f"Cantidad actualizada: '{producto.nombre}' - Chica: {producto.tallachica}, Mediana: {producto.tallamediana}, Grande: {producto.tallagrande}")
                 return
 
-            fecha_actual = input("Fecha actual: ")
-            id_proveedor = producto.id_proveedor
-            nombre_proveedor = ""
-            for proveedor in proveedores:
-                if proveedor.id_proveedor == id_proveedor:
-                    nombre_proveedor = proveedor.nombre_empresa
+        if not producto_encontrado:
+            print("Producto no encontrado.")
 
-            tupla_producto = (producto.nombre, cantidad_nueva, producto.precioventa)
-            lista_tuplas = [tupla_producto]
-            nueva_compra = Compra(fecha_actual, nombre_proveedor, lista_tuplas)
-            compras.append(nueva_compra)
-            print(f"Cantidad actualizada: '{producto.nombre}' - Chica: {producto.tallachica}, Mediana: {producto.tallamediana}, Grande: {producto.tallagrande}")
-            return
-
-    if not producto_encontrado:
-        # Si no se encuentra el producto, agregar uno nuevo
-        nombre = input("Nombre del producto: ")
-        descripcion = input("Descripción del producto: ")
-        tallachica = int(input("Cantidad de talla chica: "))
-        tallamediana = int(input("Cantidad de talla mediana: "))
-        tallagrande = int(input("Cantidad de talla grande: "))
-        color = input("Color del producto: ")
-        precioCosto = float(input("Precio de Costo: "))
-        precioVenta = float(input("Precio de Venta: "))
+    elif opcion == "2":
         id_proveedor = int(input("ID del proveedor: "))
-
-        # Verificar si el proveedor existe antes de agregar el producto
         proveedor_encontrado = False
+        # Verificar si el proveedor existe antes de agregar el producto
         for proveedor in proveedores:
             if proveedor.id_proveedor == id_proveedor:
                 proveedor_encontrado = True
+                nombre_proveedor = proveedor.nombre_empresa
+                id_producto = int(input("ID del producto: "))
+                nombre = input("Nombre del producto: ")
+                descripcion = input("Descripción del producto: ")
+                tallachica = int(input("Cantidad de talla chica: "))
+                tallamediana = int(input("Cantidad de talla mediana: "))
+                tallagrande = int(input("Cantidad de talla grande: "))
+                color = input("Color del producto: ")
+                precioCosto = float(input("Precio de Costo: "))
+                precioVenta = float(input("Precio de Venta: "))
                 nuevo_producto = Producto(id_producto, nombre, descripcion, tallachica, tallamediana, tallagrande, color, precioCosto, precioVenta, id_proveedor)
                 productos.append(nuevo_producto)
+
+                lista_tuplas = []
+                if tallachica > 0:
+                    tupla_producto = (nuevo_producto.nombre, tallachica, nuevo_producto.preciocosto)
+                    lista_tuplas.append(tupla_producto)
+                if tallamediana > 0:
+                    tupla_producto = (nuevo_producto.nombre, tallamediana, nuevo_producto.preciocosto)
+                    lista_tuplas.append(tupla_producto)
+                if tallagrande > 0:
+                    tupla_producto = (nuevo_producto.nombre, tallagrande, nuevo_producto.preciocosto)
+                    lista_tuplas.append(tupla_producto)
+
+                nueva_compra = Compra(datetime.now().date(), nombre_proveedor, lista_tuplas)
+                compras.append(nueva_compra)
                 print("Producto agregado exitosamente!\n")
                 print(nuevo_producto)
                 break
 
         if not proveedor_encontrado:
             print("El proveedor no existe")
+    else:
+        print("Opcion invalida")
 
 
 def mostrar_salida_productos(productos):
