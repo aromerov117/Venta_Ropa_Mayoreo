@@ -8,9 +8,9 @@ from compra_venta import *
 from modelos import Producto
 from gestion_proveedores import *
 from edicion_gestion_usuarios import *
-from registro_producto import Producto
+from registro_producto import *
 from gestion_inventario import menu_gestion_inventario
-from registro_producto import productos_registrados
+from registro_producto import *
 from devoluciones import *
 
 opciones_menu = [

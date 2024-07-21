@@ -49,18 +49,44 @@ def valida_proveedor(id_proveedor, proveedores):
         if proveedor.id_proveedor == id_proveedor:
             return proveedor.nombre_empresa
     return None
+def validar_opcion_talla():
+    while True:
+        print("1.- Chica")
+        print("2.- Mediana")
+        print("3.- Grande")
+        talla = input("Seleccione Talla del producto: ")
+        if talla in ["1", "2", "3"]:
+            return talla
+        else:
+            print("¡¡Talla Invalida!!")
+
+def validar_cantidad():
+    while True:
+        try:
+            cantidad = int(input("Cantidad: "))
+            if cantidad > 0:
+                return cantidad
+            else:
+                print("La cantidad debe ser un número entero positivo.")
+        except ValueError:
+            print("Entrada inválida. Por favor, ingrese un número entero.")
+
+def valida_id_producto():
+    while True:
+        try:
+            id_producto = int(input("ID del Producto: "))
+            return id_producto
+        except ValueError:
+            print("ID de producto inválido. Inténtalo de nuevo.")
+
 
 def genera_devolucion(productos_registrados, proveedores, devoluciones):
-    id_producto = int(input("ID del Producto: "))
+    id_producto = valida_id_producto()
     producto = valida_producto(id_producto, productos_registrados)
     if producto:
         nombre_proveedor = valida_proveedor(producto.id_proveedor, proveedores)
         if nombre_proveedor:
-            print("1.- Chica")
-            print("2.- Mediana")
-            print("3.- Grande")
-            talla_devuelta = input(f"Elija Talla a Devolver de {producto.nombre}: ")
-
+            talla_devuelta = validar_opcion_talla()
             if talla_devuelta == "1":
                 cantidad_devuelta = int(input("Ingrese Cantidad a Devolver: "))
                 producto.tallachica -= cantidad_devuelta

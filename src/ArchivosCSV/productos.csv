@@ -1,0 +1,6 @@
+id_producto,nombre,descripcion,tallachica,tallamediana,tallagrande,color,preciocosto,precioventa,id_proveedor
+1,Camiseta,Camiseta de algodón,10,5,3,Rojo,20.0,50.0,1
+2,Jeans,Jeans ajustados,10,5,4,Azul,35.0,75.0,2
+3,Chaqueta,Chaqueta de cuero,12,8,9,Negro,50.0,100.0,1
+4,Zapatos,Zapatos deportivos,10,10,20,Blanco,20.0,60.0,2
+5,Gorra,Gorra de béisbol,20,20,13,Negro,30.0,80.0,1

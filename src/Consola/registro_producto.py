@@ -1,8 +1,34 @@
 # registro_producto.py
 
 from modelos import Producto
+import csv
+import os
+
+
+def cargar_productos_desde_csv(archivo_csv):
+    productos_registrados = []
+    with open(archivo_csv, mode='r', encoding='utf-8-sig') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            producto = Producto(
+                int(row['id_producto']),
+                row['nombre'],
+                row['descripcion'],
+                int(row['tallachica']),
+                int(row['tallamediana']),
+                int(row['tallagrande']),
+                row['color'],
+                float(row['preciocosto']),
+                float(row['precioventa']),
+                int(row['id_proveedor'])
+            )
+            productos_registrados.append(producto)
+    return productos_registrados
+archivo_csv = '..\\ArchivosCSV\\productos.csv'
+productos_registrados = cargar_productos_desde_csv(archivo_csv)
 
 # Lista de productos registrados
+'''
 productos_registrados = [
     Producto(1, "Camiseta", "Camiseta de algodón", 10, 5, 3, "Rojo", 20.0, 50.0, 1),
     Producto(2, "Jeans", "Jeans ajustados", 10, 5, 4, "Azul", 35.0, 75.0, 2),
@@ -10,7 +36,7 @@ productos_registrados = [
     Producto(4, "Zapatos", "Zapatos deportivos", 10, 10, 20, "Blanco", 20.0, 60.0, 2),
     Producto(5, "Gorra", "Gorra de béisbol", 20, 20, 13, "Negro", 30.0, 80.0, 1)
 ]
-
+'''
 # Función para buscar un producto por ID
 def buscar_producto_por_id(id_producto):
     for producto in productos_registrados:
