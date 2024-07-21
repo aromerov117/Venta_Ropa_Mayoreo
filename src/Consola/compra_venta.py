@@ -2,6 +2,8 @@
 from datetime import datetime
 from compras import *
 from ventas import *
+from datetime import datetime
+from modelos import Producto, Proveedor, Compra
 
 def validar_opcion_talla():
     while True:
@@ -13,10 +15,6 @@ def validar_opcion_talla():
             return talla
         else:
             print("Talla inválida, por favor seleccione una opción válida.")
-
-
-from datetime import datetime
-from modelos import Producto, Proveedor, Compra
 
 
 def mostrar_entrada_productos(productos, proveedores, compras):

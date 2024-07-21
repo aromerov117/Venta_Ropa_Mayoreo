@@ -1,5 +1,4 @@
 # modelos.py
-
 class Usuario:
     def __init__(self, nombre_completo, correo_electronico, telefono, contrasena, rol):
         self.nombre_completo = nombre_completo

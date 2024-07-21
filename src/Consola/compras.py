@@ -4,14 +4,13 @@ from modelos import Compra, Proveedor, Producto
 from gestion_proveedores import proveedores
 from datetime import datetime
 import csv
-
+'''
 compras_realizadas = [
     Compra("2023-07-01", Proveedor(1, "Proveedor A", "Calle Principal 123", "555-1234", "info@proveedora.com", ["Producto A", "Producto B"]), [("Producto A", 5, 20.0), ("Producto B", 10, 15.0)]),
     Compra("2023-07-05", Proveedor(2, "Proveedor B", "Av. Independencia 456", "555-5678", "info@proveedorb.com", ["Producto C"]), [("Producto C", 7, 25.0)]),
     Compra("2023-07-10", Proveedor(1, "Proveedor A", "Calle Principal 123", "555-1234", "info@proveedora.com", ["Producto A", "Producto B"]), [("Producto A", 3, 20.0), ("Producto D", 8, 30.0)]),
 ]
-
-
+'''
 def cargar_compras_desde_csv(archivo_csv, proveedores_registrados):
     compras_realizadas = []
     try:
