@@ -34,7 +34,6 @@ def calcular_margen_ganancia():
     margen_ganancia = total_ventas - total_compras
     return margen_ganancia
 
-
 def mostrar_analisis_contabilidad():
     print("Seleccione una opción:")
     print("1. Mostrar análisis de contabilidad en consola")
