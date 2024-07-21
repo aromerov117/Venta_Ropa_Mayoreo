@@ -11,6 +11,7 @@ from edicion_gestion_usuarios import *
 from registro_producto import Producto
 from gestion_inventario import menu_gestion_inventario
 from registro_producto import productos_registrados
+from devoluciones import *
 
 opciones_menu = [
     "Catalogo",
@@ -76,7 +77,7 @@ def seleccionar_opcion(opcion):
     elif opcion == 3:
         mostrar_salida_productos(productos_registrados,ventas_realizadas)
     elif opcion == 4:
-        menu_proveedores(proveedores)
+        menu_devoluciones()
     elif opcion == 5:
         menu_proveedores(proveedores)
     elif opcion == 6:

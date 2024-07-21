@@ -14,7 +14,7 @@ def iniciar_sesion(correo_electronico, contrasena):
                 print("Contraseña correcta")  # Depuración
                 # Restablecer intentos fallidos en caso de éxito
                 intentos_fallidos[correo_electronico] = 0
-                return True, f"Inicio de sesión exitoso. Bienvenido al sistema, {usuario.nombre_completo}.", usuario.rol.lower()
+                return True, f"Inicio de sesión exitoso. Bienvenido al sistema, {usuario.nombre_completo},{usuario.rol}"
             else:
                 print(f"Contraseña incorrecta: {contrasena}")  # Depuración
                 # Incrementar el contador de intentos fallidos
