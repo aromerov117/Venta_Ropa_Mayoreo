@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ef11c06-510e-4dd6-a7e9-36c87dcb4217" name="Changes" comment="Devoluciones">
-      <change afterPath="$PROJECT_DIR$/src/ArchivosCSV/productos.csv" afterDir="false" />
+    <list default="true" id="8ef11c06-510e-4dd6-a7e9-36c87dcb4217" name="Changes" comment="CSV productos">
+      <change afterPath="$PROJECT_DIR$/src/ArchivosCSV/compras.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ArchivosCSV/devoluciones.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ArchivosCSV/proveedores.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ArchivosCSV/ventas.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Consola/compras.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Consola/compras.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Consola/devoluciones.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Consola/devoluciones.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Consola/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Consola/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Consola/gestion_proveedores.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Consola/gestion_proveedores.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Consola/registro_producto.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Consola/registro_producto.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Consola/ventas.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Consola/ventas.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +177,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721587935533</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="CSV productos">
+      <option name="closed" value="true" />
+      <created>1721594054303</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1721594054303</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,7 +206,8 @@
     <MESSAGE value="Compras" />
     <MESSAGE value="Ventas" />
     <MESSAGE value="Devoluciones" />
-    <option name="LAST_COMMIT_MESSAGE" value="Devoluciones" />
+    <MESSAGE value="CSV productos" />
+    <option name="LAST_COMMIT_MESSAGE" value="CSV productos" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Venta_Ropa_Mayoreo$main.coverage" NAME="main Coverage Results" MODIFIED="1721196075288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -204,7 +218,7 @@
     <SUITE FILE_PATH="coverage/Proyecto$Prenda.coverage" NAME="Prenda Coverage Results" MODIFIED="1721090053025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/Proyecto$Proveedores.coverage" NAME="Proveedores Coverage Results" MODIFIED="1721092051766" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/Proyecto$compra_venta.coverage" NAME="compra_venta Coverage Results" MODIFIED="1721328381840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/Proyecto$main.coverage" NAME="main Coverage Results" MODIFIED="1721593850906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Consola" />
+    <SUITE FILE_PATH="coverage/Proyecto$main.coverage" NAME="main Coverage Results" MODIFIED="1721600721015" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Consola" />
     <SUITE FILE_PATH="coverage/Proyecto$interfaz_usuario.coverage" NAME="interfaz_usuario Coverage Results" MODIFIED="1721087531020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/Proyecto$devoluciones.coverage" NAME="devoluciones Coverage Results" MODIFIED="1721409665729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Consola" />
   </component>

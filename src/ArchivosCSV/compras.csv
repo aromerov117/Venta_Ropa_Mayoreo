@@ -1,0 +1,4 @@
+fecha,proveedor_id,proveedor_nombre,proveedor_direccion,proveedor_telefono,proveedor_email,productos,cantidades,precios
+2023-07-01,1,Proveedor A,Calle Principal 123,555-1234,info@proveedora.com,"Producto A;Producto B","5;10","20.0;15.0"
+2023-07-05,2,Proveedor B,Av. Independencia 456,555-5678,info@proveedorb.com,"Producto C","7","25.0"
+2023-07-10,1,Proveedor A,Calle Principal 123,555-1234,info@proveedora.com,"Producto A;Producto D","3;8","20.0;30.0"

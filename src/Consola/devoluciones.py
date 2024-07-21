@@ -3,12 +3,41 @@ from modelos import Producto, Proveedor
 from datetime import datetime
 from gestion_proveedores import proveedores
 from registro_producto import productos_registrados
-
+import csv
+'''
 devoluciones = [
     Devolucion(datetime.now().date(), "Proveedor A", "Producto 1", 5, 100.0),
     Devolucion(datetime.now().date(), "Proveedor B", "Producto 2", 3, 150.0),
     Devolucion(datetime.now().date(), "Proveedor C", "Producto 3", 10, 200.0)
 ]
+'''
+def cargar_devoluciones_desde_csv(archivo_csv):
+    devoluciones = []
+    try:
+        with open(archivo_csv, mode='r', encoding='utf-8-sig') as file:
+            reader = csv.DictReader(file)
+            for row in reader:
+                # Convertir la fecha
+                fecha = datetime.strptime(row['fecha'], '%Y-%m-%d').date()
+
+                # Leer los demás campos
+                proveedor_nombre = row['proveedor_nombre']
+                producto = row['producto']
+                cantidad = int(row['cantidad'])
+                monto_total = float(row['monto_total'])
+
+                # Crear objeto Devolucion
+                devolucion = Devolucion(fecha, proveedor_nombre, producto, cantidad, monto_total)
+                devoluciones.append(devolucion)
+    except FileNotFoundError:
+        print(f"El archivo '{archivo_csv}' no se encontró.")
+    except Exception as e:
+        print(f"Se produjo un error al leer el archivo: {e}")
+    return devoluciones
+
+archivo_csv = '..\\ArchivosCSV\\devoluciones.csv'
+devoluciones = cargar_devoluciones_desde_csv(archivo_csv)
+
 def menu_devoluciones():
     print("---Menu Devoluciones---")
     print("1.- Mostrar Devoluciones")

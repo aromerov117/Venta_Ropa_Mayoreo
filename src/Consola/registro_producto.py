@@ -2,8 +2,6 @@
 
 from modelos import Producto
 import csv
-import os
-
 
 def cargar_productos_desde_csv(archivo_csv):
     productos_registrados = []

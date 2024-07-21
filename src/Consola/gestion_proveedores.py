@@ -1,12 +1,37 @@
 # gestion_proveedores.py
-
+import csv
 from modelos import Proveedor
-
+'''
 proveedores = [
     Proveedor(1, "Proveedor A", "Calle Principal 123", "555-1234", "info@proveedora.com", ["Producto A", "Producto B"]),
     Proveedor(2, "Proveedor B", "Av. Independencia 456", "555-5678", "info@proveedorb.com", ["Producto C"])
 ]
+'''
+def cargar_proveedores_desde_csv(archivo_csv):
+    proveedores_registrados = []
+    try:
+        with open(archivo_csv, mode='r', encoding='utf-8-sig') as file:
+            reader = csv.DictReader(file)
+            for row in reader:
+                # Convertir la cadena de productos a una lista
+                productos = row['productos'].split(';')
 
+                proveedor = Proveedor(
+                    int(row['id_proveedor']),
+                    row['nombre'],
+                    row['direccion'],
+                    row['telefono'],
+                    row['email'],
+                    productos
+                )
+                proveedores_registrados.append(proveedor)
+    except FileNotFoundError:
+        print(f"El archivo '{archivo_csv}' no se encontró.")
+    except Exception as e:
+        print(f"Se produjo un error al leer el archivo: {e}")
+    return proveedores_registrados
+archivo_csv = '..\\ArchivosCSV\\proveedores.csv'
+proveedores = cargar_proveedores_desde_csv(archivo_csv)
 def registrar_proveedor(proveedores):
     id_proveedor = int(input("Ingrese el ID del proveedor: "))
     nombre_empresa = input("Ingrese el nombre de la empresa: ")
