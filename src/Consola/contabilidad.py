@@ -3,7 +3,7 @@ from fpdf import FPDF
 from ventas import ventas_realizadas
 from compras import compras_realizadas
 from modelos import Proveedor
-
+import matplotlib.pyplot as plt
 def mostrar_reporte_compras():
     print("\nReporte de Compras:")
     for compra in compras_realizadas:
@@ -38,8 +38,8 @@ def mostrar_analisis_contabilidad():
     print("Seleccione una opción:")
     print("1. Mostrar análisis de contabilidad en consola")
     print("2. Generar reporte de contabilidad en PDF")
-
-    opcion = input("Ingrese su opción (1/2): ")
+    print("3. Generar reporte Gráfico")
+    opcion = input("Ingrese su opción (1/2/3): ")
 
     if opcion == "1":
         print("Análisis de Contabilidad de Compras y Ventas:")
@@ -50,8 +50,10 @@ def mostrar_analisis_contabilidad():
         print(f"El margen de ganancia total es: ${margen_ganancia:.2f}")
     elif opcion == "2":
         generar_reporte_pdf()
+    elif opcion == "3":
+        generar_grafico_ventas_por_fecha(ventas_realizadas)
     else:
-        print("Opción inválida. Por favor, seleccione 1 o 2.")
+        print("Opción inválida. Por favor, seleccione 1,2,3.")
 
 class PDFContabilidad(FPDF):
     def header(self):
@@ -111,3 +113,30 @@ def generar_reporte_pdf():
     pdf_output = '..\\Reportes\\reporte_contabilidad.pdf'
     pdf.output(pdf_output)
     print(f"Reporte PDF generado: {pdf_output}")
+
+def generar_grafico_ventas_por_fecha(ventas):
+    # Agrupar ventas por fecha
+    ventas_por_fecha = {}
+    for venta in ventas:
+        fecha = venta.fecha.strftime('%Y-%m-%d')  # Convertir la fecha a formato string para el agrupamiento
+        if fecha in ventas_por_fecha:
+            ventas_por_fecha[fecha] += venta.total_venta
+        else:
+            ventas_por_fecha[fecha] = venta.total_venta
+
+    # Ordenar fechas
+    fechas = sorted(ventas_por_fecha.keys())
+    totales = [ventas_por_fecha[fecha] for fecha in fechas]
+
+    # Crear gráfico
+    plt.figure(figsize=(12, 6))
+    plt.plot(fechas, totales, marker='o', linestyle='-', color='skyblue')
+    plt.xlabel('Fecha')
+    plt.ylabel('Total de Ventas')
+    plt.title('Total de Ventas a lo Largo del Tiempo')
+    plt.xticks(rotation=45)
+    plt.grid(True)
+    plt.tight_layout()
+
+    # Guardar el gráfico como un archivo
+    plt.savefig('..\\Reportes\\grafico_ventas_por_fecha.png')
