@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ef11c06-510e-4dd6-a7e9-36c87dcb4217" name="Changes" comment="Ticket venta">
+    <list default="true" id="8ef11c06-510e-4dd6-a7e9-36c87dcb4217" name="Changes" comment="Separacion carpetas de comando e interfaces">
+      <change afterPath="$PROJECT_DIR$/src/Consola/gestion_roles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Consola/contabilidad.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Consola/contabilidad.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Consola/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Consola/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaces/interfaz_catalogo.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/interfaz_catalogo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaces/interfaz_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/interfaz_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaces/registro_usuario.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/registro_usuario.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +28,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;aromerov117&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/aromerov117/Venta_Ropa_Mayoreo.git&quot;,
+    &quot;accountId&quot;: &quot;127e411d-ed65-4886-8e58-8e143dec62fa&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -34,35 +51,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.catalogo.executor": "Run",
-    "Python.contabilidad.executor": "Run",
-    "Python.interfaz_usuario.executor": "Run",
-    "Python.main (1).executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Topicos de Desarrollo de Sistemas/Proyecto/src/Archivos CSV",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.contabilidad.executor&quot;: &quot;Run&quot;,
+    &quot;Python.interfaz_main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.interfaz_usuario.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/angel/Documentos/Topicos/Venta_Ropa_Mayoreo/src/Interfaces&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Topicos de Desarrollo de Sistemas\Proyecto\src\Archivos CSV" />
+      <recent name="$PROJECT_DIR$/src/Interfaces" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Consola" />
+      <recent name="$PROJECT_DIR$/src/Interfaces" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="contabilidad" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.interfaz_main">
+    <configuration name="interfaz_main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Venta_Ropa_Mayoreo" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -71,35 +88,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/Interfaces" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/contabilidad.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Proyecto" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/Consola" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/Consola/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/Interfaces/interfaz_main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -122,7 +116,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/Consola/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -133,9 +127,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main (1)" />
+        <item itemvalue="Python.interfaz_main" />
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.contabilidad" />
       </list>
     </recent_temporary>
   </component>
@@ -161,97 +154,33 @@
       <workItem from="1720793824752" duration="1081000" />
       <workItem from="1720807007448" duration="3852000" />
       <workItem from="1721186949567" duration="952000" />
-      <workItem from="1721321316343" duration="4959000" />
+      <workItem from="1721321316343" duration="9480000" />
     </task>
-    <task id="LOCAL-00001" summary="Compras">
+    <task id="LOCAL-00001" summary="Actualizaciones varias">
       <option name="closed" value="true" />
-      <created>1721351313028</created>
+      <created>1721326312181</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1721351313028</updated>
+      <updated>1721326312181</updated>
     </task>
-    <task id="LOCAL-00002" summary="Compras">
+    <task id="LOCAL-00002" summary="Implementacion interfaces">
       <option name="closed" value="true" />
-      <created>1721351428635</created>
+      <created>1721328576372</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1721351428635</updated>
+      <updated>1721328576372</updated>
     </task>
-    <task id="LOCAL-00003" summary="Ventas">
+    <task id="LOCAL-00003" summary="Separacion carpetas de comando e interfaces">
       <option name="closed" value="true" />
-      <created>1721354014203</created>
+      <created>1721330524464</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1721354014203</updated>
+      <updated>1721330524464</updated>
     </task>
-    <task id="LOCAL-00004" summary="Devoluciones">
-      <option name="closed" value="true" />
-      <created>1721587935533</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1721587935533</updated>
-    </task>
-    <task id="LOCAL-00005" summary="CSV productos">
-      <option name="closed" value="true" />
-      <created>1721594054303</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1721594054303</updated>
-    </task>
-    <task id="LOCAL-00006" summary="CSV`s">
-      <option name="closed" value="true" />
-      <created>1721600918381</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1721600918381</updated>
-    </task>
-    <task id="LOCAL-00007" summary="CSV`s">
-      <option name="closed" value="true" />
-      <created>1721604505717</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1721604505717</updated>
-    </task>
-    <task id="LOCAL-00008" summary="PDF Contabilidad">
-      <option name="closed" value="true" />
-      <created>1721604569304</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1721604569304</updated>
-    </task>
-    <task id="LOCAL-00009" summary="PDF Catalogo">
-      <option name="closed" value="true" />
-      <created>1721605546832</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1721605546832</updated>
-    </task>
-    <task id="LOCAL-00010" summary="PDF Catalogo">
-      <option name="closed" value="true" />
-      <created>1721605738425</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1721605738425</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Ticket venta">
-      <option name="closed" value="true" />
-      <created>1721607219587</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1721607219587</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,30 +198,21 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Compras" />
-    <MESSAGE value="Ventas" />
-    <MESSAGE value="Devoluciones" />
-    <MESSAGE value="CSV productos" />
-    <MESSAGE value="CSV`s" />
-    <MESSAGE value="PDF Contabilidad" />
-    <MESSAGE value="PDF Catalogo" />
-    <MESSAGE value="Ticket venta" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ticket venta" />
+    <MESSAGE value="Actualizaciones varias" />
+    <MESSAGE value="Implementacion interfaces" />
+    <MESSAGE value="Separacion carpetas de comando e interfaces" />
+    <option name="LAST_COMMIT_MESSAGE" value="Separacion carpetas de comando e interfaces" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Proyecto$registro_producto.coverage" NAME="registro_producto Coverage Results" MODIFIED="1721235926272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/Venta_Ropa_Mayoreo$contabilidad.coverage" NAME="contabilidad Coverage Results" MODIFIED="1721241727858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/Proyecto$Prenda.coverage" NAME="Prenda Coverage Results" MODIFIED="1721090053025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/Proyecto$catalogo.coverage" NAME="catalogo Coverage Results" MODIFIED="1721604942038" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Consola" />
-    <SUITE FILE_PATH="coverage/Venta_Ropa_Mayoreo$main.coverage" NAME="main Coverage Results" MODIFIED="1721196075288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Venta_Ropa_Mayoreo$interfaz_usuario.coverage" NAME="interfaz_usuario Coverage Results" MODIFIED="1721066950472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Proyecto$gestion_proveedores.coverage" NAME="gestion_proveedores Coverage Results" MODIFIED="1721183208595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/Proyecto$contabilidad.coverage" NAME="contabilidad Coverage Results" MODIFIED="1721603623527" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Consola" />
-    <SUITE FILE_PATH="coverage/Proyecto$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1721604960898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Consola" />
+    <SUITE FILE_PATH="coverage/Venta_Ropa_Mayoreo$interfaz_usuario.coverage" NAME="main Coverage Results" MODIFIED="1721074501917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Proyecto$Proveedores.coverage" NAME="Proveedores Coverage Results" MODIFIED="1721092051766" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/Proyecto$compra_venta.coverage" NAME="compra_venta Coverage Results" MODIFIED="1721328381840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/Proyecto$main.coverage" NAME="main Coverage Results" MODIFIED="1721609131257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Consola" />
+    <SUITE FILE_PATH="coverage/Proyecto$compra_venta.coverage" NAME="compra_venta Coverage Results" MODIFIED="1721196118127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Venta_Ropa_Mayoreo$interfaz_main.coverage" NAME="interfaz_main Coverage Results" MODIFIED="1721674327757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Interfaces" />
+    <SUITE FILE_PATH="coverage/Venta_Ropa_Mayoreo$contabilidad.coverage" NAME="contabilidad Coverage Results" MODIFIED="1721241727858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Venta_Ropa_Mayoreo$main.coverage" NAME="main Coverage Results" MODIFIED="1721410552439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Proyecto$main.coverage" NAME="main Coverage Results" MODIFIED="1721197273329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/Proyecto$interfaz_usuario.coverage" NAME="interfaz_usuario Coverage Results" MODIFIED="1721087531020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/Proyecto$devoluciones.coverage" NAME="devoluciones Coverage Results" MODIFIED="1721409665729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Consola" />
+    <SUITE FILE_PATH="coverage/Proyecto$gestion_proveedores.coverage" NAME="gestion_proveedores Coverage Results" MODIFIED="1721183208595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
 </project>
