@@ -4,6 +4,7 @@ from compras import *
 from ventas import *
 from datetime import datetime
 from modelos import Producto, Proveedor, Compra
+from fpdf import FPDF
 
 def validar_opcion_talla():
     while True:
@@ -151,6 +152,42 @@ def validar_cantidad():
 
 
 #-------------- Ventas ----------------
+class PDFTicket(FPDF):
+    def header(self):
+        self.set_font("Arial", 'B', 12)
+        self.cell(0, 10, 'Ticket de Venta', 0, 1, 'C')
+        self.ln(5)
+
+    def ticket_body(self, venta):
+        self.set_font("Arial", '', 10)
+        self.cell(0, 10, f"Fecha: {venta.fecha.strftime('%Y-%m-%d')}", 0, 1)
+        self.cell(0, 10, f"Cliente: {venta.cliente}", 0, 1)
+        self.ln(5)
+
+        self.set_font("Arial", 'B', 10)
+        self.cell(40, 10, 'Producto', 1)
+        self.cell(20, 10, 'Cantidad', 1)
+        self.cell(30, 10, 'Precio Unit.', 1)
+        self.cell(30, 10, 'Total', 1)
+        self.ln()
+
+        self.set_font("Arial", '', 10)
+        for i, producto in enumerate(venta.productos):
+            self.cell(40, 10, producto, 1)
+            self.cell(20, 10, str(venta.cantidades[i]), 1)
+            self.cell(30, 10, f"${venta.precios_unitarios[i]:.2f}", 1)
+            self.cell(30, 10, f"${venta.cantidades[i] * venta.precios_unitarios[i]:.2f}", 1)
+            self.ln()
+
+        self.cell(0, 10, f"Total de Venta: ${venta.total_venta:.2f}", 0, 1, 'R')
+
+def generar_ticket_pdf(venta):
+    pdf = PDFTicket()
+    pdf.add_page()
+    pdf.ticket_body(venta)
+    pdf.output('..\\Reportes\\ticket_venta.pdf')
+    print("Ticket PDF generado con éxito.")
+
 def mostrar_salida_productos(productos, ventas_realizadas):
     for producto in productos:
         print(producto.mostrarVendedor())
@@ -191,6 +228,9 @@ def mostrar_salida_productos(productos, ventas_realizadas):
             ventas_realizadas.append(venta)
             producto_seleccionado.tallachica -= cantidad
             print("¡¡Venta Realizada!!")
+            generar_ticket = input("¿Desea generar el ticket en PDF? (s/n): ").strip().lower()
+            if generar_ticket == 's':
+                generar_ticket_pdf(venta)
     elif talla == "2":
         if producto_seleccionado.tallamediana < 1:
             print("Sin Stock, elige otro producto")
@@ -209,6 +249,9 @@ def mostrar_salida_productos(productos, ventas_realizadas):
             ventas_realizadas.append(venta)
             producto_seleccionado.tallamediana -= cantidad
             print("¡¡Venta Realizada!!")
+            generar_ticket = input("¿Desea generar el ticket en PDF? (s/n): ").strip().lower()
+            if generar_ticket == 's':
+                generar_ticket_pdf(venta)
     elif talla == "3":
         if producto_seleccionado.tallagrande < 1:
             print("Sin Stock, elige otro producto")
@@ -227,5 +270,8 @@ def mostrar_salida_productos(productos, ventas_realizadas):
             ventas_realizadas.append(venta)
             producto_seleccionado.tallagrande -= cantidad
             print("¡¡Venta Realizada!!")
+            generar_ticket = input("¿Desea generar el ticket en PDF? (s/n): ").strip().lower()
+            if generar_ticket == 's':
+                generar_ticket_pdf(venta)
     else:
         print("Opción de talla no válida")
