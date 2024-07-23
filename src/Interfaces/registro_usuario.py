@@ -30,3 +30,17 @@ def visualizar_usuarios():
         print(f"Teléfono: {usuario.telefono}")
         print(f"Rol: {usuario.rol}")
         print("-----------------------------")
+
+def buscar_usuario(correo_electronico):
+    for usuario in usuarios_registrados:
+        if usuario.correo_electronico == correo_electronico:
+            return usuario
+    return None
+
+def obtener_usuarios_registrados():
+    roles = {}
+    for usuario in usuarios_registrados:
+        if usuario.rol not in roles:
+            roles[usuario.rol] = []
+        roles[usuario.rol].append(usuario)
+    return roles
