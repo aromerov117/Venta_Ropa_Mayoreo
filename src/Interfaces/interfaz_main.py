@@ -5,7 +5,7 @@ from tkinter import messagebox
 from tkinter import ttk
 from registro_usuario import registrar_usuario, visualizar_usuarios
 from inicio_sesion import iniciar_sesion
-#from interfaz_catalogo import mostrar_catalogo
+from interfaz_catalogo import CatalogoWindow
 from edicion_gestion_usuarios import *
 
 class Aplicacion:
@@ -18,6 +18,10 @@ class Aplicacion:
         self.current_window = None
 
     def menuInicio(self):
+        # Limpiar la ventana actual
+        for widget in self.root.winfo_children():
+            widget.destroy()
+
         barraMenu = tk.Menu(self.root)
         root.config(menu=barraMenu)
 
@@ -43,15 +47,14 @@ class Aplicacion:
         if valor == True:
             root.destroy()
 
-    def center_window(self, window):
-        window.update_idletasks()  # Actualiza las tareas pendientes de la ventana
-        window_width = window.winfo_width()
-        window_height = window.winfo_height()
-        screen_width = window.winfo_screenwidth()
-        screen_height = window.winfo_screenheight()
-        x = (screen_width // 2) - (window_width // 2)
-        y = (screen_height // 2) - (window_height // 2)
-        window.geometry(f'{window_width}x{window_height}+{x}+{y}')
+    def center_window(self, root):
+        # Obtener el tamaño de la pantalla
+        screen_width = root.winfo_screenwidth()
+        screen_height = root.winfo_screenheight()
+        # Calcular la posición del centro
+        x_cordinate = int((screen_width/2) - (400/2))
+        y_cordinate = int((screen_height/2) - (300/2))
+        root.geometry(f"{400}x{300}+{x_cordinate}+{y_cordinate}")
 
     def close_current_window(self):
         if self.current_window:
@@ -102,6 +105,14 @@ class Aplicacion:
         # Limpiar la ventana actual
         for widget in self.root.winfo_children():
             widget.destroy()
+
+        barraMenu = tk.Menu(self.root)
+        root.config(menu=barraMenu)
+
+        opcionesMenu = tk.Menu(barraMenu, tearoff=0)
+        opcionesMenu.add_command(label="Volver", command=self.menuInicio)
+
+        barraMenu.add_cascade(label="Opciones", menu=opcionesMenu)
 
         # Añadir widgets para la pantalla de inicio de sesión
         tk.Label(self.root, text="Correo electrónico:").grid(row=0, column=0, padx=10, pady=5)
@@ -173,17 +184,19 @@ class Aplicacion:
         salirMenu = tk.Menu(barraMenu, tearoff=0)
         salirMenu.add_command(label="Cerrar Sesión", command=self.menuInicio)
 
-
-        barraMenu.add_cascade(label="Cataogo", menu=catalogoMenu)
+        barraMenu.add_cascade(label="Catalogo", menu=catalogoMenu)
         barraMenu.add_cascade(label="Compras", menu=comprasMenu)
+        barraMenu.add_cascade(label="Ventas", menu=comprasMenu)
+        barraMenu.add_cascade(label="Devoluciones", menu=comprasMenu)
+        barraMenu.add_cascade(label="Proveedores", menu=comprasMenu)
+        barraMenu.add_cascade(label="Inventario", menu=comprasMenu)
+        barraMenu.add_cascade(label="Análisis Contable", menu=comprasMenu)
         barraMenu.add_cascade(label="Salir", menu=salirMenu)
 
-
-'''
     def seleccionar_opcion(self, opcion_index):
         if opcion_index == 0:
-            mostrar_catalogo()
-'''
+            CatalogoWindow(self).cargar_productos()
+
 
 
 if __name__ == "__main__":
