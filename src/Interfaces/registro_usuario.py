@@ -4,6 +4,7 @@ from modelos import Usuario
 
 # Lista de usuarios registrados
 usuarios_registrados = [
+    Usuario("a", "a", "1234567890", "123", "administrador"),
     Usuario("administrador", "administrador@gmail.com", "1234567890", "123", "administrador"),
     Usuario("gerente", "gerente@gmail.com", "0987654321", "456", "gerente"),
     Usuario("vendedor", "vendedor@gmail.com", "5551234567", "789", "vendedor")

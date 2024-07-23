@@ -1,54 +1,50 @@
-# interfaz_catalogo.py
-
 import tkinter as tk
 from tkinter import ttk
 from registro_producto import productos_registrados
 
+
 class CatalogoWindow:
     def __init__(self, root):
         self.root = root
-        self.root.title("Catálogo de Productos")
+        self.root.title("Catálogo de Productos")  # Esto funciona solo si root es un objeto Tk
         self.root.geometry("800x400")  # Tamaño estándar de la ventana
         self.center_window(self.root)  # Centrar ventana en la pantalla
 
-        # Crear un marco para el contenido del catálogo
-        frame = tk.Frame(self.root)
-        frame.pack(fill=tk.BOTH, expand=True)
+        # Crear un marco principal para el contenido del catálogo
+        main_frame = tk.Frame(root)
+        main_frame.pack(fill=tk.BOTH, expand=True)
 
-        # Crear un lienzo (canvas) para el scroll horizontal
-        canvas = tk.Canvas(frame)
-        canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        # Crear un lienzo para el scroll horizontal
+        self.canvas = tk.Canvas(main_frame)
+        self.canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
         # Crear una barra de desplazamiento horizontal
-        scrollbar = tk.Scrollbar(frame, orient=tk.HORIZONTAL, command=canvas.xview)
-        scrollbar.pack(side=tk.BOTTOM, fill=tk.X)
+        self.h_scrollbar = tk.Scrollbar(main_frame, orient=tk.HORIZONTAL, command=self.canvas.xview)
+        self.h_scrollbar.pack(side=tk.BOTTOM, fill=tk.X)
 
-        # Crear un marco en el lienzo para contener el árbol
-        tree_frame = tk.Frame(canvas)
+        # Crear un marco para el contenido del catálogo
+        self.catalog_frame = tk.Frame(self.canvas)
 
-        # Crear un árbol (treeview) para mostrar los productos
-        self.tree = ttk.Treeview(tree_frame, columns=(
-        "Nombre", "Descripción", "Talla Chica", "Talla Mediana", "Talla Grande", "Color", "Precio Costo",
-        "Precio Venta", "ID Proveedor"), show="headings", height=15)
-        self.tree.heading("Nombre", text="Nombre")
-        self.tree.heading("Descripción", text="Descripción")
-        self.tree.heading("Talla Chica", text="Talla Chica")
-        self.tree.heading("Talla Mediana", text="Talla Mediana")
-        self.tree.heading("Talla Grande", text="Talla Grande")
-        self.tree.heading("Color", text="Color")
-        self.tree.heading("Precio Costo", text="Precio Costo")
-        self.tree.heading("Precio Venta", text="Precio Venta")
-        self.tree.heading("ID Proveedor", text="ID Proveedor")
+        # Añadir el marco al lienzo
+        self.canvas.create_window((0, 0), window=self.catalog_frame, anchor="nw")
 
-        self.tree.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        # Vincular el marco al lienzo para actualizar el área de desplazamiento
+        self.catalog_frame.bind("<Configure>", self.on_frame_configure)
+        self.canvas.configure(xscrollcommand=self.h_scrollbar.set)
 
-        # Agregar el marco del árbol al lienzo y configurar el scroll
-        canvas.create_window((0, 0), window=tree_frame, anchor="nw")
-        tree_frame.update_idletasks()
-        canvas.config(scrollregion=canvas.bbox("all"))
-        canvas.config(xscrollcommand=scrollbar.set)
+        # Crear una tabla para mostrar el catálogo de productos
+        columns = (
+            "ID", "Nombre", "Descripción", "Talla Chica", "Talla Mediana", "Talla Grande", "Color", "Precio Costo",
+            "Precio Venta", "ID Proveedor")
+        self.treeview = ttk.Treeview(self.catalog_frame, columns=columns, show="headings")
+        self.treeview.pack(fill=tk.BOTH, expand=True)
 
-        # Rellenar el árbol con los productos
+        # Definir encabezados de las columnas
+        for col in columns:
+            self.treeview.heading(col, text=col)
+            self.treeview.column(col, anchor="w")
+
+        # Cargar los productos en la tabla
         self.cargar_productos()
 
     def center_window(self, window):
@@ -61,9 +57,14 @@ class CatalogoWindow:
         y = (screen_height // 2) - (window_height // 2)
         window.geometry(f'{window_width}x{window_height}+{x}+{y}')
 
+    def on_frame_configure(self, event):
+        # Actualizar el área de desplazamiento del lienzo
+        self.canvas.configure(scrollregion=self.canvas.bbox("all"))
+
     def cargar_productos(self):
         for producto in productos_registrados:
-            self.tree.insert("", tk.END, values=(
+            self.treeview.insert("", tk.END, values=(
+                producto.id_producto,
                 producto.nombre,
                 producto.descripcion,
                 producto.tallachica,
@@ -74,7 +75,3 @@ class CatalogoWindow:
                 f"${producto.precioventa:.2f}",
                 producto.id_proveedor
             ))
-
-def mostrar_catalogo():
-    root = tk.Toplevel()  # Crear una ventana secundaria para el catálogo
-    CatalogoWindow(root)
