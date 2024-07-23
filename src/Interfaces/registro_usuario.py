@@ -36,3 +36,11 @@ def buscar_usuario(correo_electronico):
         if usuario.correo_electronico == correo_electronico:
             return usuario
     return None
+
+def obtener_usuarios_registrados():
+    roles = {}
+    for usuario in usuarios_registrados:
+        if usuario.rol not in roles:
+            roles[usuario.rol] = []
+        roles[usuario.rol].append(usuario)
+    return roles

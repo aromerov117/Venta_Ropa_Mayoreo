@@ -1,10 +1,9 @@
-# interfaz_main.py
-
 import tkinter as tk
 from tkinter import messagebox, ttk
 from registro_usuario import registrar_usuario
 from inicio_sesion import iniciar_sesion
 from interfaz_catalogo import CatalogoWindow
+from interfaz_visualizar_usuarios import VisualizarUsuariosWindow
 
 class VentanaBienvenida:
     def __init__(self, root):
@@ -118,8 +117,11 @@ class InicioSesion:
         if iniciado:
             messagebox.showinfo("Inicio de Sesión", mensaje)
             self.root.destroy()
-            root = tk.Toplevel()
+
+            # Crear una nueva ventana principal
+            root = tk.Tk()  # Cambiado de Toplevel a Tk
             Aplicacion(root)
+            root.mainloop()
         else:
             messagebox.showerror("Inicio de Sesión", mensaje)
 
@@ -127,28 +129,24 @@ class Aplicacion:
     def __init__(self, root):
         self.root = root
         self.root.title("Sistema de Gestión de Ropa al Mayoreo")
-        self.root.geometry("600x400")
-        self.center_window(self.root)
+        self.root.geometry("300x100")  # Tamaño reducido
+        self.position_window()  # Ubicar en la esquina superior izquierda
 
-        # Frame principal para contener el contenido actual
-        self.current_frame = tk.Frame(root)
-        self.current_frame.pack(fill=tk.BOTH, expand=True)
+        self.current_frame = None
 
-        # Frame inferior para contener el menú desplegable
-        self.menu_frame = tk.Frame(root)
-        self.menu_frame.pack(side=tk.BOTTOM, fill=tk.X)
-
+        # Crear menú desplegable
         self.crear_menu_desplegable()
 
-    def center_window(self, window):
-        window.update_idletasks()
-        window_width = window.winfo_width()
-        window_height = window.winfo_height()
-        screen_width = window.winfo_screenwidth()
-        screen_height = window.winfo_screenheight()
-        x = (screen_width // 2) - (window_width // 2)
-        y = (screen_height // 2) - (window_height // 2)
-        window.geometry(f'{window_width}x{window_height}+{x}+{y}')
+    def position_window(self):
+        # Posicionar ventana en la esquina superior izquierda
+        self.root.update_idletasks()
+        window_width = self.root.winfo_width()
+        window_height = self.root.winfo_height()
+        screen_width = self.root.winfo_screenwidth()
+        screen_height = self.root.winfo_screenheight()
+        x = 0  # Esquina superior izquierda
+        y = 0  # Esquina superior izquierda
+        self.root.geometry(f'{window_width}x{window_height}+{x}+{y}')
 
     def crear_menu_desplegable(self):
         opciones_menu = [
@@ -165,18 +163,26 @@ class Aplicacion:
             "Gestionar usuarios"
         ]
 
-        opciones_combobox = ttk.Combobox(self.menu_frame, values=opciones_menu, state="readonly")
+        opciones_combobox = ttk.Combobox(self.root, values=opciones_menu, state="readonly")
         opciones_combobox.pack(side=tk.LEFT, padx=10, pady=10)
 
-        seleccionar_btn = tk.Button(self.menu_frame, text="Seleccionar",
+        seleccionar_btn = tk.Button(self.root, text="Seleccionar",
                                     command=lambda: self.seleccionar_opcion(opciones_combobox.get()))
         seleccionar_btn.pack(side=tk.LEFT, padx=10, pady=10)
 
     def seleccionar_opcion(self, opcion):
-        for widget in self.current_frame.winfo_children():
-            widget.destroy()
+        # Cerrar ventana anterior si existe
+        if self.current_frame is not None:
+            self.current_frame.destroy()
+
         if opcion == "Catalogo":
-            CatalogoWindow(self.root)  # Pasar la ventana principal en lugar del frame actual
+            self.current_frame = tk.Toplevel(self.root)
+            self.current_frame.geometry("900x500")
+            CatalogoWindow(self.current_frame)
+        elif opcion == "Visualizar usuarios":
+            self.current_frame = tk.Toplevel(self.root)
+            self.current_frame.geometry("800x400")
+            VisualizarUsuariosWindow(self.current_frame)
 
 if __name__ == "__main__":
     root = tk.Tk()
