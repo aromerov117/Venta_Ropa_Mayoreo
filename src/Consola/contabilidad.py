@@ -138,5 +138,5 @@ def generar_grafico_ventas_por_fecha(ventas):
     plt.grid(True)
     plt.tight_layout()
 
-    # Guardar el gráfico como un archivo
+    # Guardar el gráfico como un archivo en Reportes
     plt.savefig('..\\Reportes\\grafico_ventas_por_fecha.png')

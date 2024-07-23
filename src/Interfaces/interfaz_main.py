@@ -12,14 +12,36 @@ class Aplicacion:
     def __init__(self, root):
         self.root = root
         self.root.title("Sistema de Gestión de Ropa al Mayoreo")
-        self.root.geometry("400x300")  # Tamaño estándar de la ventana
+        self.root.geometry("700x300")  # Tamaño estándar de la ventana
         self.center_window(self.root)  # Centrar ventana en la pantalla
-
+        self.menuInicio()
         self.current_window = None
 
+    def menuInicio(self):
+        barraMenu = tk.Menu(self.root)
+        root.config(menu=barraMenu)
+
+        inicioSesionOpcion = tk.Menu(barraMenu, tearoff=0)
+        inicioSesionOpcion.add_command(label="Iniciar Sesion", command=self.mostrar_inicio_sesion)
+
+        registroOpcion = tk.Menu(barraMenu, tearoff=0)
+        registroOpcion.add_command(label="Registrase", command=self.mostrar_registro)
+
+        opcionesOpcion = tk.Menu(barraMenu, tearoff=0)
+        opcionesOpcion.add_command(label="Salir", command=self.root.destroy)
+
+        barraMenu.add_cascade(label="Inicio de Sesión", menu=inicioSesionOpcion)
+        barraMenu.add_cascade(label="Registro", menu=registroOpcion)
+        barraMenu.add_cascade(label="Opciones", menu=opcionesOpcion)
+
         tk.Label(root, text="Bienvenido", font=("Helvetica", 16)).pack(pady=20)
-        tk.Button(root, text="Registrarse", command=self.mostrar_registro).pack(pady=10)
-        tk.Button(root, text="Iniciar Sesión", command=self.mostrar_inicio_sesion).pack(pady=10)
+        #tk.Button(root, text="Registrarse", command=self.mostrar_registro).pack(pady=10)
+        #tk.Button(root, text="Iniciar Sesión", command=self.mostrar_inicio_sesion).pack(pady=10)
+
+    def salirAplicacion(self, root):
+        valor = messagebox.askokcancel('Salir', '¿Salir del programa?')
+        if valor == True:
+            root.destroy()
 
     def center_window(self, window):
         window.update_idletasks()  # Actualiza las tareas pendientes de la ventana
@@ -77,22 +99,20 @@ class Aplicacion:
             self.mostrar_menu()
 
     def mostrar_inicio_sesion(self):
-        self.close_current_window()
-        self.current_window = tk.Toplevel(self.root)
-        self.current_window.title("Inicio de Sesión")
-        self.current_window.geometry("400x300")
+        # Limpiar la ventana actual
+        for widget in self.root.winfo_children():
+            widget.destroy()
 
-        self.center_window(self.current_window)  # Centrar ventana secundaria
-
-        tk.Label(self.current_window, text="Correo electrónico:").grid(row=0, column=0, padx=10, pady=5)
-        self.correo_entry = tk.Entry(self.current_window)
+        # Añadir widgets para la pantalla de inicio de sesión
+        tk.Label(self.root, text="Correo electrónico:").grid(row=0, column=0, padx=10, pady=5)
+        self.correo_entry = tk.Entry(self.root)
         self.correo_entry.grid(row=0, column=1, padx=10, pady=5)
 
-        tk.Label(self.current_window, text="Contraseña:").grid(row=1, column=0, padx=10, pady=5)
-        self.contrasena_entry = tk.Entry(self.current_window, show="*")
+        tk.Label(self.root, text="Contraseña:").grid(row=1, column=0, padx=10, pady=5)
+        self.contrasena_entry = tk.Entry(self.root, show="*")
         self.contrasena_entry.grid(row=1, column=1, padx=10, pady=5)
 
-        iniciar_btn = tk.Button(self.current_window, text="Iniciar Sesión", command=self.iniciar_sesion)
+        iniciar_btn = tk.Button(self.root, text="Iniciar Sesión", command=self.iniciar_sesion)
         iniciar_btn.grid(row=2, columnspan=2, pady=10)
 
     def iniciar_sesion(self):
@@ -103,7 +123,7 @@ class Aplicacion:
         if iniciado:
             messagebox.showinfo("Inicio de Sesión", mensaje)
             self.close_current_window()
-            self.mostrar_menu()
+            self.mostrar_menu2()
         else:
             messagebox.showerror("Inicio de Sesión", mensaje)
 
@@ -128,7 +148,6 @@ class Aplicacion:
             "Visualizar usuarios",
             "Gestionar usuarios"
         ]
-
         opciones_combobox = ttk.Combobox(self.current_window, values=opciones_menu, state="readonly")
         opciones_combobox.grid(row=0, column=0, padx=10, pady=10)
 
@@ -136,9 +155,35 @@ class Aplicacion:
                                     command=lambda: self.seleccionar_opcion(opciones_combobox.current()))
         seleccionar_btn.grid(row=0, column=1, padx=10, pady=10)
 
+    def mostrar_menu2(self):
+        # Limpiar la ventana actual
+        for widget in self.root.winfo_children():
+            widget.destroy()
+
+        barraMenu = tk.Menu(self.root)
+        self.root.config(menu=barraMenu, width=300, height=300)
+
+        # Menú Catalogo
+        catalogoMenu = tk.Menu(barraMenu, tearoff=0)
+        catalogoMenu.add_command(label="Productos")
+        # Menú Compras
+        comprasMenu = tk.Menu(barraMenu, tearoff=0)
+        comprasMenu.add_command(label="Realizar Compra")
+        # Menú Salir
+        salirMenu = tk.Menu(barraMenu, tearoff=0)
+        salirMenu.add_command(label="Cerrar Sesión", command=self.menuInicio)
+
+
+        barraMenu.add_cascade(label="Cataogo", menu=catalogoMenu)
+        barraMenu.add_cascade(label="Compras", menu=comprasMenu)
+        barraMenu.add_cascade(label="Salir", menu=salirMenu)
+
+
+
     def seleccionar_opcion(self, opcion_index):
         if opcion_index == 0:
             mostrar_catalogo()
+
 
 
 if __name__ == "__main__":
