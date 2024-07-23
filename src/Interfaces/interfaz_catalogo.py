@@ -7,8 +7,12 @@ class CatalogoWindow:
     def __init__(self, root):
         self.root = root
         self.root.title("Catálogo de Productos")  # Esto funciona solo si root es un objeto Tk
-        self.root.geometry("800x400")  # Tamaño estándar de la ventana
-        self.center_window(self.root)  # Centrar ventana en la pantalla
+        #self.root.geometry("800x400")  # Tamaño estándar de la ventana
+        #self.center_window(self.root)  # Centrar ventana en la pantalla
+
+        # Limpiar la ventana actual
+        for widget in self.root.winfo_children():
+            widget.destroy()
 
         # Crear un marco principal para el contenido del catálogo
         main_frame = tk.Frame(root)
