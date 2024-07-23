@@ -1,11 +1,10 @@
+# interfaz_main.py
+
 import tkinter as tk
 from tkinter import messagebox, ttk
 from registro_usuario import registrar_usuario
 from inicio_sesion import iniciar_sesion
 from interfaz_catalogo import CatalogoWindow
-from interfaz_visualizar_usuarios import VisualizarUsuariosWindow
-from interfaz_gestionar_usuarios import GestionarUsuariosWindow
-
 
 class VentanaBienvenida:
     def __init__(self, root):
@@ -35,7 +34,6 @@ class VentanaBienvenida:
     def mostrar_inicio_sesion(self):
         inicio_sesion_window = tk.Toplevel(self.root)
         InicioSesion(inicio_sesion_window)
-
 
 class RegistroUsuario:
     def __init__(self, root):
@@ -84,7 +82,6 @@ class RegistroUsuario:
         if registrado:
             self.root.destroy()
 
-
 class InicioSesion:
     def __init__(self, root):
         self.root = root
@@ -126,7 +123,6 @@ class InicioSesion:
         else:
             messagebox.showerror("Inicio de Sesión", mensaje)
 
-
 class Aplicacion:
     def __init__(self, root):
         self.root = root
@@ -134,10 +130,11 @@ class Aplicacion:
         self.root.geometry("600x400")
         self.center_window(self.root)
 
-        # Frame para contener el contenido actual
-        self.current_frame = None
+        # Frame principal para contener el contenido actual
+        self.current_frame = tk.Frame(root)
+        self.current_frame.pack(fill=tk.BOTH, expand=True)
 
-        # Frame inferior para el menú desplegable
+        # Frame inferior para contener el menú desplegable
         self.menu_frame = tk.Frame(root)
         self.menu_frame.pack(side=tk.BOTTOM, fill=tk.X)
 
@@ -176,19 +173,10 @@ class Aplicacion:
         seleccionar_btn.pack(side=tk.LEFT, padx=10, pady=10)
 
     def seleccionar_opcion(self, opcion):
-        # Destruir el frame actual si existe
-        if self.current_frame:
-            self.current_frame.destroy()
-
-        # Crear la ventana correspondiente según la opción seleccionada
+        for widget in self.current_frame.winfo_children():
+            widget.destroy()
         if opcion == "Catalogo":
-            self.current_frame = CatalogoWindow(self.root)
-        elif opcion == "Visualizar usuarios":
-            self.current_frame = VisualizarUsuariosWindow(self.root)
-        elif opcion == "Gestionar usuarios":
-            self.current_frame = GestionarUsuariosWindow(self.root)
-        # Añadir más opciones según sea necesario
-
+            CatalogoWindow(self.root)  # Pasar la ventana principal en lugar del frame actual
 
 if __name__ == "__main__":
     root = tk.Tk()
