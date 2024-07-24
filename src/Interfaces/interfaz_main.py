@@ -13,8 +13,8 @@ class Aplicacion:
     def __init__(self, root):
         self.root = root
         self.root.title("Sistema de Gestión de Ropa al Mayoreo")
-        self.root.geometry("700x300")  # Tamaño estándar de la ventana
-        self.center_window(self.root)  # Centrar ventana en la pantalla
+        self.root.geometry("800x450")  # Tamaño estándar de la ventana
+        #self.center_window(self.root)  # Centrar ventana en la pantalla
         self.menuInicio()
         self.current_window = None
 
@@ -55,7 +55,7 @@ class Aplicacion:
         # Calcular la posición del centro
         x_cordinate = int((screen_width/2) - (400/2))
         y_cordinate = int((screen_height/2) - (300/2))
-        root.geometry(f"{700}x{400}+{x_cordinate}+{y_cordinate}")
+        root.geometry(f"{800}x{400}+{x_cordinate}+{y_cordinate}")
 
     def close_current_window(self):
         if self.current_window:
@@ -168,20 +168,25 @@ class Aplicacion:
         seleccionar_btn.grid(row=0, column=1, padx=10, pady=10)
 
     def mostrar_menu2(self):
-        # Limpiar la ventana actual
+        # Limpiar solo el contenido de la ventana actual, manteniendo el menú
         for widget in self.root.winfo_children():
+            if isinstance(widget, tk.Menu):
+                continue
             widget.destroy()
 
+        # Crear y configurar el menú
         barraMenu = tk.Menu(self.root)
         self.root.config(menu=barraMenu, width=300, height=300)
 
         # Menú Catalogo
         catalogoMenu = tk.Menu(barraMenu, tearoff=0)
-        catalogoMenu.add_command(label="Productos",command=mostrar_catalogo)
+        catalogoMenu.add_command(label="Productos", command=self.mostrar_catalogo)
+
         # Menú Compras
         comprasMenu = tk.Menu(barraMenu, tearoff=0)
-        comprasMenu.add_command(label="Producto Nuevo", command=Compras_ventana(root).compra_nuevo)
-        comprasMenu.add_command(label="Producto Existente", command=Compras_ventana(root).compra_existente)
+        comprasMenu.add_command(label="Producto Nuevo", command=self.mostrar_compra_nuevo)
+        comprasMenu.add_command(label="Producto Existente", command=self.mostrar_compra_existente)
+
         # Menú Salir
         salirMenu = tk.Menu(barraMenu, tearoff=0)
         salirMenu.add_command(label="Cerrar Sesión", command=self.menuInicio)
@@ -199,14 +204,26 @@ class Aplicacion:
         self.content_frame = tk.Frame(self.root, bg="black", width=100, height=100)
         self.content_frame.pack(fill=tk.BOTH, expand=True)
 
+
     def seleccionar_opcion(self, opcion_index):
         if opcion_index == 0:
             CatalogoWindow(self).cargar_productos()
-def mostrar_catalogo():
-    CatalogoWindow(root).cargar_productos()
-def mostrar_compra_existente():
-    Compras_ventana(root).compra_existente()
+    def mostrar_compra_existente(self):
+        # Crear una instancia de Compras_ventana y mostrar contenido de compra existente
+        Compras_ventana(self.root, self.content_frame).compra_existente()
 
+    def mostrar_compra_nuevo(self):
+        # Crear una instancia de Compras_ventana y mostrar contenido de compra nuevo
+        Compras_ventana(self.root, self.content_frame).compra_nuevo()
+
+    def limpiar_contenido(self):
+        # Limpiar el contenido del frame_contenedor
+        for widget in self.content_frame.winfo_children():
+            widget.destroy()
+
+    def mostrar_catalogo(self):
+        # Crear una instancia de CatalogoWindow y cargar productos
+        CatalogoWindow(self.root, self.content_frame).cargar_productos()
 
 
 if __name__ == "__main__":
